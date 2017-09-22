@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application CurrentUserDisplayMode="CaptionAndImage">
+  <ActionDesign>
+    <Actions>
+      <Action Id="RestoreOccurrence" Index="-1">
+        <DisableReasons>
+          <Reason Id="OccuranceDisabled" IsNewNode="True" />
+        </DisableReasons>
+      </Action>
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="Marbid.Module.BusinessObjects.Administration.Feedback">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.AddNewMOMParametersObject">
+      <OwnMembers>
+        <Member Name="ActionPlan" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="Issue" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.Company">
+      <OwnMembers>
+        <Member Name="BriefHistory" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="CoreBelieve" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="CoreValue" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="Mission" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="Vision" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.MinutesOfMeeting">
+      <OwnMembers>
+        <Member Name="ActionPlan" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.News">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.Schedule" IsCloneable="True" />
+    <Class Name="Marbid.Module.BusinessObjects.CRM.ShortDescriptionParametersObject">
+      <OwnMembers>
+        <Member Name="ShortDescription" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.General.Notes">
+      <OwnMembers>
+        <Member Name="Note" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.AddNewNoteParameterObject">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.AndvanceTaskParameterObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.Announcement">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.CompleteParametersObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.ReasignParameterObject">
+      <OwnMembers>
+        <Member Name="ReassignReason" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.StartTaskParameterObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.Task">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.CorporateResource">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.Regulation">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.StandardOperatingProcedure">
+      <OwnMembers>
+        <Member Name="Objectives" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.MiscObject.MessageOfTheDay">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" DefaultDetailView="DashboardViewer_DetailView" />
+  </BOModel>
+  <NavigationItems ShowImages="True">
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="MyDetails" ViewId="Employee_DetailView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="EmailModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="LogicModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="SchedulerAspNetModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSecurityModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="XpandValidationModule" Version="17.1.5.1" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="BIDashboard_ListView" DetailViewID="DashboardViewer_DetailView" />
+    <DetailView Id="Document_DetailView">
+      <Items>
+        <PropertyEditor Id="Attachment_Preview" PropertyEditorType="Marbid.Module.Web.Editors.PdfPropertyEditor" />
+      </Items>
+    </DetailView>
+    <ListView Id="HomeDashboard_News_ListView" PageSize="5" />
+    <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <ListView Id="Organization_Visits_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <ListView Id="People_Schedules_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <ListView Id="PhotoGallery_Photos_ListView" EditorTypeName="Marbid.Module.Web.Editors.ASPxCustomListEditor">
+      <Variants>
+        <Variant Id="@b354c189-6603-4660-83b3-2cdf6d0ba75b" ViewID="PhotoGallery_Photos_ListView" Caption="Thumbnail view" Index="0" IsNewNode="True" />
+        <Variant Id="@49572fb9-6bf1-408a-8c16-e6782191ab0a" ViewID="PhotoGallery_Photos_ListView_Copy" Caption="Grid View" Index="1" IsNewNode="True" />
+      </Variants>
+    </ListView>
+    <ListView Id="PhotoGallery_Photos_ListView_Copy" ClassName="Marbid.Module.BusinessObjects.General.Photo" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" AllowEdit="True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Gallery" PropertyName="Gallery" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Title" PropertyName="Title" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Thumbnail" PropertyName="Thumbnail" Width="70" Index="1" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Schedule_Grid_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <DetailView Id="StandardOperatingProcedure_DetailView">
+      <Items>
+        <PropertyEditor Id="SOPDocument_Preview" PropertyEditorType="Marbid.Module.Web.Editors.PdfPropertyEditor" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

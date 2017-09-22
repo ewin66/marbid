@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="News_ListView_Home_LatestNews" GridViewPagerMode="ShowPager" UseFixedTableLayout="True" />
+  </Views>
+</Application>

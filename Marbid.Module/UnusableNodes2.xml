@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Node Id="DashboardModule@26ffc302-81b9-4a7b-84d0-b107dedec041" UnusableNodeName="DashboardModule" DashboardsInGroup="False" />
+  <Views Id="Views">
+    <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" IsColumnAutoWidth="True" />
+    <DetailView Id="Dashboard_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="15.17412935323383">
+            <LayoutGroup Id="Dashboard" RelativeSize="100">
+              <LayoutItem Id="Name" ViewItem="Name" Index="0" RelativeSize="26.229508196721312" />
+              <LayoutGroup Id="Auto3ca8f01a-c692-4050-86b0-d4aa90ce7c0d" ShowCaption="False" Caption="Auto3ca8f01a-c692-4050-86b0-d4aa90ce7c0d(5)" Direction="Horizontal" Index="1" RelativeSize="49.180327868852459">
+                <LayoutGroup Id="Auto7e6a6f16-6b3a-4ac4-9917-6420b5252976" ShowCaption="False" Caption="Auto7e6a6f16-6b3a-4ac4-9917-6420b5252976(6)" Index="0" RelativeSize="50.046339202965711">
+                  <LayoutItem Id="CreatedBy" ViewItem="CreatedBy" Index="0" RelativeSize="50" />
+                  <LayoutItem Id="Index" ViewItem="Index" Index="1" RelativeSize="50" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto68c4b35d-b628-4e77-a4ac-9c9c6a12d674" ShowCaption="False" Caption="Auto68c4b35d-b628-4e77-a4ac-9c9c6a12d674(9)" Index="1" RelativeSize="49.953660797034289">
+                  <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="0" RelativeSize="50" />
+                  <LayoutItem Id="IsActive" ViewItem="IsActive" Index="1" RelativeSize="50" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutItem Id="CreatedBy" Index="2" RelativeSize="18.3206106870229" Removed="True" />
+              <LayoutItem Id="Description" Index="2" RelativeSize="24.590163934426229" />
+              <LayoutItem Id="CreateDate" Index="4" RelativeSize="20.610687022900763" Removed="True" />
+              <LayoutItem Id="IsActive" RelativeSize="20.547945205479451" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="DashboardDefinition" RelativeSize="81.643835616438352" Caption="DashboardDefinition" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="Active" Index="0" RelativeSize="100" Removed="True" />
+              <LayoutItem Id="Index" Index="0" RelativeSize="47.368421052631582" Removed="True" />
+              <LayoutItem Id="Name" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutItem Id="DashboardTypes" ViewItem="DashboardTypes" Index="1" RelativeSize="2.9850746268656718" />
+          <TabbedGroup Id="Tabs" Index="2" RelativeSize="81.8407960199005">
+            <LayoutGroup Id="Categories" RelativeSize="100">
+              <LayoutItem Id="Categories" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="AllowedRoles" RelativeSize="100">
+              <LayoutItem Id="AllowedRoles" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" RelativeSize="100" Caption="XML" ImageName="ModelEditor_Action_Xml">
+              <LayoutItem Id="Xml" ViewItem="Xml" Index="0" RelativeSize="100" ShowCaption="False" />
+            </LayoutGroup>
+            <LayoutGroup Id="Roles" Removed="True" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Dashboard_ListView" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Users][[Oid] = CurrentUserId()]] And [Active] = True" />
+    <ListView Id="DashboardDefinition_ListView" DetailViewID="DashboardDefinition_DetailView" />
+    <ListView Id="Employee_Schedules_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="AssignedCar" Index="-1" Removed="True" />
+        <ColumnInfo Id="AssignedDriver" Index="-1" Removed="True" />
+        <ColumnInfo Id="CarAssignedBy" Index="-1" Removed="True" />
+        <ColumnInfo Id="CarAssignedDate" Index="-1" Removed="True" />
+        <ColumnInfo Id="CarAssignmentNote" Index="-1" Removed="True" />
+        <ColumnInfo Id="CarOrder" Index="-1" Removed="True" />
+        <ColumnInfo Id="CreateDate" Index="-1" Removed="True" />
+        <ColumnInfo Id="CreatedBy" Index="-1" Removed="True" />
+        <ColumnInfo Id="IsCarAssigned" Index="-1" Removed="True" />
+        <ColumnInfo Id="IsLocked" Index="-1" Removed="True" />
+        <ColumnInfo Id="MeetingRoom" Index="-1" Width="88" Removed="True" />
+        <ColumnInfo Id="ModifiedBy" Index="-1" Removed="True" />
+        <ColumnInfo Id="ModifyDate" Index="-1" Removed="True" />
+        <ColumnInfo Id="Participants" Index="-1" Removed="True" />
+        <ColumnInfo Id="Subject" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="StartOn" Index="1" SortIndex="0" SortOrder="Descending" Width="109" />
+        <ColumnInfo Id="EndOn" Index="2" Width="90" />
+        <ColumnInfo Id="Organization" Index="3" Width="81" />
+        <ColumnInfo Id="Location" Index="4" />
+        <ColumnInfo Id="AlarmTime" Removed="True" />
+        <ColumnInfo Id="AllDay" Removed="True" />
+        <ColumnInfo Id="CarManagerEmail" Removed="True" />
+        <ColumnInfo Id="Description" Removed="True" />
+        <ColumnInfo Id="DriverEmail" Removed="True" />
+        <ColumnInfo Id="DriverManagerRoleName" Removed="True" />
+        <ColumnInfo Id="IsPostponed" Removed="True" />
+        <ColumnInfo Id="Label" Removed="True" />
+        <ColumnInfo Id="NotificationMessage" Removed="True" />
+        <ColumnInfo Id="OwnerEmail" Removed="True" />
+        <ColumnInfo Id="ParticipantsEmail" Removed="True" />
+        <ColumnInfo Id="RecurrenceInfoXml" Removed="True" />
+        <ColumnInfo Id="RecurrencePattern" Removed="True" />
+        <ColumnInfo Id="ReminderTime" Removed="True" />
+        <ColumnInfo Id="Status" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="MOM_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Item2">
+              <LayoutItem Id="ScheduleParticipants" ViewItem="ScheduleParticipants" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+      <Items Id="Items">
+        <PropertyEditor Id="MinutesOfMeetings" LinkView="MOMList_ListView" />
+      </Items>
+    </DetailView>
+    <DetailView Id="Announcement_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <TabbedGroup Id="Item2">
+              <LayoutGroup Id="Item3">
+                <LayoutItem Id="AnnouncementRecepients" ViewItem="AnnouncementRecepients" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Company_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Autocb84c397-601d-49aa-a8e1-d347760ea349">
+              <LayoutItem Id="Photo" ViewItem="Photo" />
+            </LayoutGroup>
+            <LayoutGroup Id="CustomerBase">
+              <LayoutGroup Id="CustomerBase_col1">
+                <LayoutItem Id="Photo" RelativeSize="8.5714285714285712" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Documents" RelativeSize="100">
+              <LayoutItem Id="Documents" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Company_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Photo" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Contact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Item3">
+            <LayoutGroup Id="Auto918e9865-143d-43ef-837d-06a02c5a222b">
+              <LayoutItem Id="Department" ViewItem="Department" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Item1">
+            <LayoutGroup Id="Auto96f7f5bc-71b2-47f2-a0a3-6038453eeb77">
+              <LayoutGroup Id="Auto61cecd64-2678-453a-b2b3-82d83ae17c91">
+                <LayoutItem Id="Twitter" ViewItem="Twitter" />
+                <LayoutItem Id="Website" ViewItem="Website" />
+                <LayoutItem Id="Faximile2" ViewItem="Faximile2" />
+                <LayoutItem Id="Mobile2" ViewItem="Mobile2" />
+                <LayoutItem Id="Ext2" ViewItem="Ext2" />
+                <LayoutItem Id="Ext1" ViewItem="Ext1" />
+                <LayoutItem Id="PostalCode" ViewItem="PostalCode" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto9d65bb49-7c02-43ce-acf1-0a511cb53ebc">
+                <LayoutItem Id="LinkedIn" ViewItem="LinkedIn" />
+                <LayoutItem Id="Facebook" ViewItem="Facebook" />
+                <LayoutItem Id="Email" ViewItem="Email" />
+                <LayoutItem Id="Faximile1" ViewItem="Faximile1" />
+                <LayoutItem Id="Mobile1" ViewItem="Mobile1" />
+                <LayoutItem Id="Phone2" ViewItem="Phone2" />
+                <LayoutItem Id="Phone1" ViewItem="Phone1" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="CustomerBase" RelativeSize="18.302387267904511" Index="3" Removed="True">
+              <LayoutGroup Id="CustomerBase_col1" RelativeSize="52.059925093632955" Caption="CustomerBase_col1" Direction="Horizontal">
+                <LayoutItem Id="DisplayName" ViewItem="DisplayName" Index="0" RelativeSize="50" Removed="True" />
+                <LayoutItem Id="Photo" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Anniversary" RelativeSize="27.272727272727273" Index="1" Removed="True" />
+                <LayoutItem Id="CreatedBy" RelativeSize="10.344827586206897" Index="1" Removed="True" />
+                <LayoutItem Id="LastUpdate" RelativeSize="10.344827586206897" Index="1" Removed="True" />
+                <LayoutItem Id="LastUpdateBy" RelativeSize="10.344827586206897" Index="1" Removed="True" />
+                <LayoutItem Id="Facebook" RelativeSize="65.517241379310349" Index="3" Removed="True" />
+                <LayoutItem Id="Region" RelativeSize="9.375" Index="6" Removed="True" />
+                <LayoutItem Id="SubRegion" RelativeSize="9.375" Index="6" Removed="True" />
+                <LayoutItem Id="CreateDate" RelativeSize="10.344827586206897" Removed="True" />
+                <LayoutItem Id="Province" RelativeSize="8.5714285714285712" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="CustomerBase_col2" RelativeSize="47.940074906367045" Caption="CustomerBase_col2" Direction="Horizontal">
+                <LayoutItem Id="Age" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Email" RelativeSize="20" Index="0" Removed="True" />
+                <LayoutItem Id="Faximile1" RelativeSize="36.363636363636367" Index="0" Removed="True" />
+                <LayoutItem Id="Faximile2" RelativeSize="36.363636363636367" Index="0" Removed="True" />
+                <LayoutItem Id="LinkedIn" RelativeSize="15.384615384615385" Index="0" Removed="True" />
+                <LayoutItem Id="Phone1" RelativeSize="23.529411764705884" Index="0" Removed="True" />
+                <LayoutItem Id="Phone2" RelativeSize="28.571428571428573" Index="0" Removed="True" />
+                <LayoutItem Id="Website" RelativeSize="13.043478260869565" Index="1" Removed="True" />
+                <LayoutItem Id="PostalCode" RelativeSize="9.375" Removed="True" />
+                <LayoutItem Id="Twitter" RelativeSize="13.793103448275861" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Auto1494a8e4-4b36-4cbf-9864-e848f36a1dde">
+              <LayoutGroup Id="Contact">
+                <LayoutGroup Id="Contact_col2">
+                  <LayoutItem Id="Anniversary" ViewItem="Anniversary" />
+                  <LayoutItem Id="Age" ViewItem="Age" />
+                  <LayoutItem Id="DateOfBirth" ViewItem="DateOfBirth" />
+                </LayoutGroup>
+                <LayoutGroup Id="Contact_col1">
+                  <LayoutItem Id="Suffix" ViewItem="Suffix" />
+                  <LayoutItem Id="Prefix" ViewItem="Prefix" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Auto0f61dc10-0676-45c3-bfe1-d08415fdaa35">
+              <LayoutItem Id="DisplayName" ViewItem="DisplayName" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Notes" RelativeSize="100">
+              <LayoutItem Id="Notes" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Documents" RelativeSize="100">
+              <LayoutItem Id="Documents" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item2">
+              <LayoutGroup Id="Autofa7faa75-8692-40a8-a19c-fc5da0e96e2f">
+                <LayoutItem Id="LastUpdateBy" ViewItem="LastUpdateBy" />
+                <LayoutItem Id="CreatedBy" ViewItem="CreatedBy" />
+              </LayoutGroup>
+              <LayoutGroup Id="Autof393544f-327d-40e1-bea1-d6a228fb242d">
+                <LayoutItem Id="LastUpdate" ViewItem="LastUpdate" />
+                <LayoutItem Id="CreateDate" ViewItem="CreateDate" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Contact_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="DateOfBirth" Index="-1" />
+        <ColumnInfo Id="Prefix" Index="-1" />
+        <ColumnInfo Id="Suffix" Index="-1" />
+        <ColumnInfo Id="Department" Index="2" />
+        <ColumnInfo Id="Mobile1" Index="4" />
+        <ColumnInfo Id="Mobile2" Index="5" />
+        <ColumnInfo Id="Phone1" Index="6" />
+        <ColumnInfo Id="Ext1" Index="7" />
+        <ColumnInfo Id="Phone2" Index="8" />
+        <ColumnInfo Id="Ext2" Index="9" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Employee_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SecuritySystemUserBase" Index="1" RelativeSize="8.4548104956268215" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="IsActive" RelativeSize="23.80952380952381" Index="1" Removed="True" />
+              <LayoutItem Id="ChangePasswordOnFirstLogon" RelativeSize="35.714285714285715" Removed="True" />
+              <LayoutItem Id="UserName" RelativeSize="19.047619047619047" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Employee">
+              <LayoutGroup Id="Employee_col1">
+                <LayoutItem Id="FirstName" RelativeSize="7.3170731707317076" Index="1" />
+                <LayoutItem Id="LastName" RelativeSize="7.3170731707317076" Index="2" />
+                <LayoutItem Id="BirthDate" RelativeSize="7.3170731707317076" Index="3" />
+                <LayoutItem Id="CorporateEmail" RelativeSize="7.8947368421052628" Index="6" Removed="True" />
+                <LayoutItem Id="Gender" RelativeSize="53.658536585365852" Index="6" />
+                <LayoutItem Id="MobilePhone1" RelativeSize="6.8181818181818183" Index="6" Removed="True" />
+                <LayoutItem Id="MobilePhone2" RelativeSize="7.3170731707317076" Index="6" Removed="True" />
+                <LayoutItem Id="OfficeExtension" RelativeSize="9.375" Index="6" Removed="True" />
+                <LayoutItem Id="PersonalEmail" RelativeSize="8.5714285714285712" Index="6" Removed="True" />
+                <LayoutItem Id="FullName" RelativeSize="8" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Employee_col2">
+                <LayoutItem Id="HomePhone" RelativeSize="8" Index="0" Removed="True" />
+                <LayoutItem Id="Province" RelativeSize="8" Index="0" Removed="True" />
+                <LayoutItem Id="Region" RelativeSize="8" Index="0" Removed="True" />
+                <LayoutItem Id="Religion" RelativeSize="8" Index="0" Removed="True" />
+                <LayoutItem Id="SubRegion" RelativeSize="8" Index="0" Removed="True" />
+                <LayoutItem Id="MaritalStatus" RelativeSize="6" Index="1" Removed="True" />
+                <LayoutItem Id="Photo" ViewItem="Photo" Index="2" RelativeSize="6.3829787234042552" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Organization_Contacts_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="DisplayName" Index="-1" Removed="True" />
+        <ColumnInfo Id="Ext2" Index="-1" Removed="True" />
+        <ColumnInfo Id="Mobile2" Index="-1" Removed="True" />
+        <ColumnInfo Id="Prefix" Index="-1" Removed="True" />
+        <ColumnInfo Id="Suffix" Index="-1" Removed="True" />
+        <ColumnInfo Id="Department" Index="2" />
+        <ColumnInfo Id="Phone1" Index="4" />
+        <ColumnInfo Id="Ext1" Index="5" />
+        <ColumnInfo Id="Mobile1" Index="6" />
+        <ColumnInfo Id="DateOfBirth" Index="7" />
+        <ColumnInfo Id="Age" Removed="True" />
+        <ColumnInfo Id="Anniversary" Removed="True" />
+        <ColumnInfo Id="CreateDate" Removed="True" />
+        <ColumnInfo Id="CreatedBy" Removed="True" />
+        <ColumnInfo Id="Email" Removed="True" />
+        <ColumnInfo Id="Facebook" Removed="True" />
+        <ColumnInfo Id="Faximile1" Removed="True" />
+        <ColumnInfo Id="Faximile2" Removed="True" />
+        <ColumnInfo Id="LastUpdate" Removed="True" />
+        <ColumnInfo Id="LastUpdateBy" Removed="True" />
+        <ColumnInfo Id="LinkedIn" Removed="True" />
+        <ColumnInfo Id="Phone2" Removed="True" />
+        <ColumnInfo Id="PostalCode" Removed="True" />
+        <ColumnInfo Id="Twitter" Removed="True" />
+        <ColumnInfo Id="Website" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Reporting_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Reporting">
+              <LayoutItem Id="CreatedBy" RelativeSize="49.928876244665716" Index="0" Removed="True" />
+              <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="1" RelativeSize="50.071123755334284" Removed="True" />
+              <LayoutItem Id="IsActive" RelativeSize="30.612244897959183" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Categories" RelativeSize="100" Index="0">
+              <LayoutItem Id="Categories" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.Dashboard" DefaultDetailView="DashboardDefinitionViewer_DetailView" />
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.DashboardCategory" IsDesigned="True" />
+  </BOModel>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="ReportStatistic">
+        <Items Id="Items">
+          <Item Id="Dashboard_ListView" ViewId="Dashboard_ListView">
+            <Items Id="Items">
+              <Item Id="@f61046ca-07b9-4759-be48-55f82c6a77e4" ViewId="Dashboard_ListView_RSM" />
+              <Item Id="@26d648de-806b-4fa0-9858-6ef427e9d268" ViewId="Dashboard_ListView_INV" />
+              <Item Id="@57b0b5a1-f718-49d6-93aa-550bdad53cbc" ViewId="Dashboard_ListView_MKT" />
+              <Item Id="@9a5d3e17-3ae4-42b5-be12-0e1d0fc70296" ViewId="Dashboard_ListView_NLS" />
+              <Item Id="@650060e1-9367-4dc3-88a0-84e0290e64e4" ViewId="Dashboard_ListView_NLC" />
+              <Item Id="@81c18936-1e9d-441b-9a21-ef3b2c28b6bd" ViewId="Dashboard_ListView_LIS" />
+              <Item Id="@4d86a181-fd32-4f12-a5cd-3d07a863334d" ViewId="Dashboard_ListView_LIC" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="@9e859c8a-8546-4125-b1dd-feb7f3dd1771">
+        <Items Id="Items">
+          <Item Id="Company_ListView">
+            <Items Id="Items">
+              <Item Id="@40bc8be1-f416-4e37-b601-5466dfec87bc" ViewId="Company_ListView_Retro" />
+              <Item Id="@111a4abe-5ad7-408a-af15-d23632a9d13e" ViewId="Company_ListView_Broker" />
+              <Item Id="@e7184685-0a78-47fb-803a-0d58a4708e04" ViewId="Company_ListView_ShariaGeneralReinsurance" />
+              <Item Id="@44128902-07cd-4763-b3fa-75e9cde9c8a4" ViewId="Company_ListView_ShariaLifeReinsurance" />
+              <Item Id="@e9d9f584-d5b4-4bbf-9347-bda946abf4a6" ViewId="Company_ListView_GeneralReinsurance" />
+              <Item Id="@a6d47d89-4cd9-45a8-aa65-5498e5775738" ViewId="Company_ListView_LifeReinsurance" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="Announcement_ListView" Removed="True" />
+          <Item Id="Checking_ListView" Removed="True" />
+          <Item Id="Company_ListView" Removed="True" />
+          <Item Id="CompanyBoardOfCommissioners_ListView" Removed="True" />
+          <Item Id="CompanyBoardOfDirectors_ListView" Removed="True" />
+          <Item Id="Contact_ListView" Removed="True" />
+          <Item Id="CorporateResource_ListView" Removed="True" />
+          <Item Id="CorporateResourceAttachment_ListView" Removed="True" />
+          <Item Id="CorporateResourceCategory_ListView" Removed="True" />
+          <Item Id="CustomerBase_ListView" Removed="True" />
+          <Item Id="CustomerDocument_ListView" Removed="True" />
+          <Item Id="Definition_ListView" Removed="True" />
+          <Item Id="Document_ListView" Removed="True" />
+          <Item Id="DocumentFolder_ListView" Removed="True" />
+          <Item Id="DocumentType_ListView" Removed="True" />
+          <Item Id="Feedback_ListView" Removed="True" />
+          <Item Id="OperatingProcedureAttachment_ListView" Removed="True" />
+          <Item Id="OperatingStep_ListView" Removed="True" />
+          <Item Id="PivotTool_ListView" Removed="True" />
+          <Item Id="Regulation_ListView" Removed="True" />
+          <Item Id="RegulationReporting_ListView" Removed="True" />
+          <Item Id="Regulator_ListView" Removed="True" />
+          <Item Id="Reporting_ListView" Removed="True" />
+          <Item Id="RiskAction_ListView" Removed="True" />
+          <Item Id="RiskAppetite_ListView" Removed="True" />
+          <Item Id="RiskCategory_ListView" Removed="True" />
+          <Item Id="RiskImpact_ListView" Removed="True" />
+          <Item Id="RiskLikelihood_ListView" Removed="True" />
+          <Item Id="RiskRegister_ListView" Removed="True" />
+          <Item Id="RiskSubCategory_ListView" Removed="True" />
+          <Item Id="Schedule_ListView" Removed="True" />
+          <Item Id="StandardOperatingProcedure_ListView" Removed="True" />
+          <Item Id="Task_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

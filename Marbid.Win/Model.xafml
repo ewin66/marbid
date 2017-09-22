@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <BOModel>
+    <Class Name="Marbid.Module.BusinessObjects.Administration.Feedback">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.Company">
+      <OwnMembers>
+        <Member Name="BriefHistory" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+        <Member Name="CoreBelieve" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+        <Member Name="CoreValue" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+        <Member Name="Mission" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+        <Member Name="Vision" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.MinutesOfMeeting">
+      <OwnMembers>
+        <Member Name="ActionPlan" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.CRM.News">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.General.Notes">
+      <OwnMembers>
+        <Member Name="Note" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.AddNewNoteParameterObject">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.AndvanceTaskParameterObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.Announcement">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.CompleteParametersObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.PostponeParametersObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.ReasignParameterObject">
+      <OwnMembers>
+        <Member Name="ReassignReason" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.StartTaskParameterObject">
+      <OwnMembers>
+        <Member Name="Comment" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.HRM.Task">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.CorporateResource">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.CorporateResourceCategory">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.Regulation">
+      <OwnMembers>
+        <Member Name="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Marbid.Module.BusinessObjects.Library.StandardOperatingProcedure">
+      <OwnMembers>
+        <Member Name="Objectives" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Win.HtmlPropertyEditor" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems RootGroupsStyle="OutlookAnimated">
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="MyDetails" ViewId="Employee_DetailView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options Skin="Office 2016 Colorful" UIType="SingleWindowSDI" FormStyle="Ribbon" EnableHtmlFormatting="True">
+    <RibbonOptions RibbonControlStyle="Office2013" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="EmailModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="LogicModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="17.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSecurityModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="XpandValidationModule" Version="17.1.5.1" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="BIDashboard_ListView" DetailViewID="DashboardViewer_DetailView" />
+    <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="Organization_Visits_ListView" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="People_Schedules_ListView" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="Schedule_Grid_ListView" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="Schedule_ListView" ResourceClass="" />
+  </Views>
+</Application>

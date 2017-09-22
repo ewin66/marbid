@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Node Id="DashboardModule@9bf63e3e-6667-416b-a654-d418cc17cbe8" UnusableNodeName="DashboardModule" DashboardsInGroup="False" />
+  <Views Id="Views">
+    <DetailView Id="MessageOfTheDay_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Content_Copy">
+          <Node Id="DashboardViewr@eb04a11d-e7fe-464e-8116-440ba1406075" UnusableNodeName="DashboardViewr" IsNewNode="True">
+            <ModelAdapters Id="ModelAdapters" IsNewNode="True" />
+          </Node>
+        </PropertyEditor>
+      </Items>
+    </DetailView>
+    <ListView Id="News_ListView_Home_LatestNews" GridViewPagerMode="ShowPager" UseFixedTableLayout="True" />
+    <ListView Id="Employee_Schedules_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <DetailView Id="Company_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Photo" ImageEditorFixedHeight="388" ImageEditorFixedWidth="300" />
+      </Items>
+    </DetailView>
+    <DetailView Id="PivotTool_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="AllowedRoles_Group" Direction="Vertical" RelativeSize="79.478054567022539" Removed="True">
+            <LayoutItem Id="AllowedRoles" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.Dashboard" DefaultDetailView="DashboardDefinitionViewer_DetailView" />
+    <Class Name="Marbid.Module.BusinessObjects.Administration.Employee">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Photo" DetailViewImageEditorFixedHeight="190" DetailViewImageEditorFixedWidth="150" ListViewImageEditorCustomHeight="150" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

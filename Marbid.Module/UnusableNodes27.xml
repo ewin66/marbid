@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" IsColumnAutoWidth="True" />
+    <DetailView Id="Feedback_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Auto50766646-d61f-4f7e-9365-47f2b8cf8fad">
+              <LayoutGroup Id="Auto0bfbd237-418e-4f6b-9bad-fb5bba1b38e2">
+                <LayoutItem Id="CretedBy" ViewItem="CretedBy" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Notes_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Notes">
+              <LayoutItem Id="CreateDate" RelativeSize="37.2093023255814" />
+              <LayoutItem Id="Owner" RelativeSize="27.906976744186046" />
+              <LayoutItem Id="IsPrivate" Removed="True" />
+              <LayoutItem Id="IsSystemNote" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Task_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Autoef7200c6-60b7-46fd-8287-1229ac9a048a">
+            <LayoutItem Id="MinutesOfMeeting" ViewItem="MinutesOfMeeting" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

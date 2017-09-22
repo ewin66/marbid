@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Schedule_Grid_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="CarManagerEmail" PropertyName="CarManagerEmail" Width="70" Index="-1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Contact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Item4">
+              <LayoutItem Id="ChangePasswordOnFirstLogon" ViewItem="ChangePasswordOnFirstLogon" />
+              <LayoutItem Id="IsActive" ViewItem="IsActive" />
+              <LayoutItem Id="UserName" ViewItem="UserName" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Feedback_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Auto50766646-d61f-4f7e-9365-47f2b8cf8fad">
+              <LayoutGroup Id="Auto0bfbd237-418e-4f6b-9bad-fb5bba1b38e2">
+                <LayoutItem Id="CretedBy" ViewItem="CretedBy" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

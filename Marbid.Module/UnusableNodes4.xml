@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Contact_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs" RelativeSize="26.403061224489797">
+            <LayoutGroup Id="Schedules" RelativeSize="100">
+              <LayoutItem Id="Schedules" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Roles" Direction="Vertical" RelativeSize="100">
+              <LayoutItem Id="Roles" ViewItem="Roles" Index="0" RelativeSize="100" Removed="True" />
+            </LayoutGroup>
+          </TabbedGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PermissionPolicyUser" RelativeSize="27.272727272727273" Caption="PermissionPolicyUser" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="ChangePasswordOnFirstLogon" RelativeSize="100" Removed="True" />
+              <LayoutItem Id="IsActive" RelativeSize="35.714285714285715" Removed="True" />
+              <LayoutItem Id="UserName" RelativeSize="50" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Item4">
+              <LayoutItem Id="ChangePasswordOnFirstLogon" ViewItem="ChangePasswordOnFirstLogon" />
+              <LayoutItem Id="IsActive" ViewItem="IsActive" />
+              <LayoutItem Id="UserName" ViewItem="UserName" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Employee_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Roles" RelativeSize="100">
+              <LayoutItem Id="Roles" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Feedback_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Auto50766646-d61f-4f7e-9365-47f2b8cf8fad">
+              <LayoutGroup Id="Auto0bfbd237-418e-4f6b-9bad-fb5bba1b38e2">
+                <LayoutItem Id="CretedBy" ViewItem="CretedBy" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

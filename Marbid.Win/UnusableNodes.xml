@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Dashboard_ListView" DataAccessMode="Client" DetailViewID="" />
+    <ListView Id="DashboardDefinition_ListView" DataAccessMode="Client" />
+    <ListView Id="Employee_Schedules_ListView" EditorTypeName="DevExpress.ExpressApp.Win.Editors.GridListEditor" />
+    <ListView Id="IDashboardDefinition_ListView" DataAccessMode="Client" />
+    <ListView Id="ITypeWrapper_ListView" DataAccessMode="Client" />
+    <ListView Id="TypeWrapper_ListView" DataAccessMode="Client" />
+    <ListView Id="Dashboard_ListView_ShariaLifeReinsurance" Criteria="([CreatedBy.Oid] = CurrentUserId() Or [Roles][[Users][[Oid] = CurrentUserId()]] And [Active] = True) And [DashboardCategory.Name] = 'Sharia Life Reinsurance'" Caption="Sharia Life Reinsurance Dashboards" ClassName="Marbid.Module.BusinessObjects.ReportCentral.Dashboard" DetailViewID="DashboardViewer_DetailView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Xml" PropertyName="Xml" Width="70" Index="-1" />
+        <ColumnInfo Id="Name" PropertyName="Name" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Width="70" Index="2" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="3" />
+        <ColumnInfo Id="CreateDate" PropertyName="CreateDate" Width="70" Index="4" />
+      </Columns>
+    </ListView>
+    <ListView Id="Dashboard_ListView_ShariaGeneralReinsurance" Criteria="([CreatedBy.Oid] = CurrentUserId() Or [Roles][[Users][[Oid] = CurrentUserId()]] And [Active] = True) And [DashboardCategory.Name] = 'Sharia General Reinsurance'" Caption="Sharia General Reinsurance Dashboards" ClassName="Marbid.Module.BusinessObjects.ReportCentral.Dashboard" DetailViewID="DashboardViewer_DetailView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Xml" PropertyName="Xml" Width="70" Index="-1" />
+        <ColumnInfo Id="Name" PropertyName="Name" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Width="70" Index="2" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="3" />
+        <ColumnInfo Id="CreateDate" PropertyName="CreateDate" Width="70" Index="4" />
+      </Columns>
+    </ListView>
+    <ListView Id="Dashboard_ListView_Investment" Criteria="([CreatedBy.Oid] = CurrentUserId() Or [Roles][[Users][[Oid] = CurrentUserId()]] And [Active] = True) And [DashboardCategory.Name] = 'Investment'" Caption="Investment Dashboards" ClassName="Marbid.Module.BusinessObjects.ReportCentral.Dashboard" DetailViewID="DashboardViewer_DetailView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Xml" PropertyName="Xml" Width="70" Index="-1" />
+        <ColumnInfo Id="Name" PropertyName="Name" Width="400" SortIndex="0" SortOrder="Ascending" Index="0" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Width="70" Index="2" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="3" />
+        <ColumnInfo Id="CreateDate" PropertyName="CreateDate" Width="70" Index="4" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

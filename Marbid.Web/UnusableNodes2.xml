@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Schedule_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="EndOn_Time" PropertyEditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxDefaultPropertyEditor" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

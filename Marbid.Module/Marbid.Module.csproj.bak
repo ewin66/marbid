@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marbid.Module</RootNamespace>
+    <AssemblyName>Marbid.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\EasyTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'EasyTest|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\EasyTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.2.33\lib\net45\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.AuditTrail.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.CloneObject.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Kpi.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Objects.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.StateMachine.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ViewVariantsModule.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Workflow.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v17.1.Drawing, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Workflow.Activities.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v17.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7" />
+    <Reference Include="Ical.Net, Version=2.1.0.21238, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.2.33\lib\net45\Ical.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ical.Net.Collections, Version=2.1.0.21237, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.2.33\lib\net45\Ical.Net.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.2.33\lib\net45\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a" />
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.DurableInstancing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Xpand.ExpressApp.Email, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Xpand.ExpressApp.Logic, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Xpand.ExpressApp.Validation, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Xpand.Persistent.Base, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Xpand.Utils, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Xpand.Xpo, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\Administration\Currency.cs" />
+    <Compile Include="BusinessObjects\Administration\Department.cs" />
+    <Compile Include="BusinessObjects\Administration\Directorate.cs" />
+    <Compile Include="BusinessObjects\Administration\Division.cs" />
+    <Compile Include="BusinessObjects\Administration\Employee.cs" />
+    <Compile Include="BusinessObjects\Administration\ExchangeRate.cs" />
+    <Compile Include="BusinessObjects\Administration\Feedback.cs" />
+    <Compile Include="BusinessObjects\Administration\FeedbackCategory.cs" />
+    <Compile Include="BusinessObjects\Administration\FeedbackType.cs" />
+    <Compile Include="BusinessObjects\Administration\MarbidRole.cs" />
+    <Compile Include="BusinessObjects\Administration\Province.cs" />
+    <Compile Include="BusinessObjects\Administration\Region.cs" />
+    <Compile Include="BusinessObjects\Administration\SubRegion.cs" />
+    <Compile Include="BusinessObjects\Administration\SystemSetting.cs" />
+    <Compile Include="BusinessObjects\Administration\People.cs" />
+    <Compile Include="BusinessObjects\Administration\ViewItemHints.cs" />
+    <Compile Include="BusinessObjects\Administration\WorkUnit.cs" />
+    <Compile Include="BusinessObjects\CRM\BusinessCooperation.cs" />
+    <Compile Include="BusinessObjects\CRM\BusinessTransactionSummary.cs" />
+    <Compile Include="BusinessObjects\CRM\Car.cs" />
+    <Compile Include="BusinessObjects\CRM\Company.cs" />
+    <Compile Include="BusinessObjects\CRM\CompanyBoardOfCommissioners.cs" />
+    <Compile Include="BusinessObjects\CRM\CompanyBoardOfDirectors.cs" />
+    <Compile Include="BusinessObjects\CRM\Contact.cs" />
+    <Compile Include="BusinessObjects\CRM\CustomerBase.cs" />
+    <Compile Include="BusinessObjects\CRM\CustomerDocument.cs" />
+    <Compile Include="BusinessObjects\CRM\CustomerFinancialInfo.cs" />
+    <Compile Include="BusinessObjects\CRM\CustomerNote.cs" />
+    <Compile Include="BusinessObjects\CRM\Driver.cs" />
+    <Compile Include="BusinessObjects\CRM\Institution.cs" />
+    <Compile Include="BusinessObjects\CRM\InsuranceDivision.cs" />
+    <Compile Include="BusinessObjects\CRM\MeetingRoom.cs" />
+    <Compile Include="BusinessObjects\CRM\MinutesOfMeeting.cs" />
+    <Compile Include="BusinessObjects\CRM\News.cs" />
+    <Compile Include="BusinessObjects\CRM\NewsCategory.cs" />
+    <Compile Include="BusinessObjects\CRM\Organization.cs" />
+    <Compile Include="BusinessObjects\CRM\Regulator.cs" />
+    <Compile Include="BusinessObjects\CRM\Schedule.cs" />
+    <Compile Include="BusinessObjects\CRM\ScheduleParticipant.cs" />
+    <Compile Include="BusinessObjects\EnumClass.cs" />
+    <Compile Include="BusinessObjects\General\Gallery.cs" />
+    <Compile Include="BusinessObjects\General\GalleryImage.cs" />
+    <Compile Include="BusinessObjects\General\Notes.cs" />
+    <Compile Include="BusinessObjects\General\Photo.cs" />
+    <Compile Include="BusinessObjects\General\PhotoGallery.cs" />
+    <Compile Include="BusinessObjects\HRM\AcademicHistory.cs" />
+    <Compile Include="BusinessObjects\HRM\AcademicInstitution.cs" />
+    <Compile Include="BusinessObjects\HRM\Announcement.cs" />
+    <Compile Include="BusinessObjects\HRM\AnnouncementCategory.cs" />
+    <Compile Include="BusinessObjects\HRM\AnnouncementRecepients.cs" />
+    <Compile Include="BusinessObjects\HRM\Certification.cs" />
+    <Compile Include="BusinessObjects\HRM\CertificationExam.cs" />
+    <Compile Include="BusinessObjects\HRM\Degree.cs" />
+    <Compile Include="BusinessObjects\HRM\EmployeeCertification.cs" />
+    <Compile Include="BusinessObjects\HRM\EmployeeExam.cs" />
+    <Compile Include="BusinessObjects\HRM\FunctionalPosition.cs" />
+    <Compile Include="BusinessObjects\HRM\Holiday.cs" />
+    <Compile Include="BusinessObjects\HRM\OfficeLeave.cs" />
+    <Compile Include="BusinessObjects\HRM\ProjectManagement.cs" />
+    <Compile Include="BusinessObjects\HRM\ProjectParticipant.cs" />
+    <Compile Include="BusinessObjects\HRM\Promotion.cs" />
+    <Compile Include="BusinessObjects\HRM\RankGroup.cs" />
+    <Compile Include="BusinessObjects\HRM\StructuralPosition.cs" />
+    <Compile Include="BusinessObjects\HRM\Task.cs" />
+    <Compile Include="BusinessObjects\HRM\TaskNote.cs" />
+    <Compile Include="BusinessObjects\HRM\ToDoList.cs" />
+    <Compile Include="BusinessObjects\Inventory\InventoryCategory.cs" />
+    <Compile Include="BusinessObjects\Inventory\InventoryItem.cs" />
+    <Compile Include="BusinessObjects\Inventory\InventoryStock.cs" />
+    <Compile Include="BusinessObjects\Inventory\LogisticPurchasing.cs" />
+    <Compile Include="BusinessObjects\Inventory\LogisticRequisition.cs" />
+    <Compile Include="BusinessObjects\Inventory\LogisticRequisitionItem.cs" />
+    <Compile Include="BusinessObjects\LibrarianSystem\Checking.cs" />
+    <Compile Include="BusinessObjects\LibrarianSystem\Document.cs" />
+    <Compile Include="BusinessObjects\LibrarianSystem\DocumentBox.cs" />
+    <Compile Include="BusinessObjects\LibrarianSystem\DocumentFolder.cs" />
+    <Compile Include="BusinessObjects\LibrarianSystem\DocumentType.cs" />
+    <Compile Include="BusinessObjects\Library\CorporateResource.cs" />
+    <Compile Include="BusinessObjects\Library\CorporateResourceAttachment.cs" />
+    <Compile Include="BusinessObjects\Library\CorporateResourceCategory.cs" />
+    <Compile Include="BusinessObjects\Library\Definition.cs" />
+    <Compile Include="BusinessObjects\Library\DocumentBase.cs" />
+    <Compile Include="BusinessObjects\Library\OperatingProcedureAttachment.cs" />
+    <Compile Include="BusinessObjects\Library\OperatingStep.cs" />
+    <Compile Include="BusinessObjects\Library\Regulation.cs" />
+    <Compile Include="BusinessObjects\Library\RegulationReporting.cs" />
+    <Compile Include="BusinessObjects\Library\StandardOperatingProcedure.cs" />
+    <Compile Include="BusinessObjects\MiscObject\AccessLog.cs" />
+    <Compile Include="BusinessObjects\MiscObject\MessageOfTheDay.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\BIDashboard.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\PivotTool.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\Reporting.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportStatisticCategory.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskAction.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskAppetite.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskCategory.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskImpact.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskLikelihood.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskRegister.cs" />
+    <Compile Include="BusinessObjects\RiskManagement\RiskSubCategory.cs" />
+    <Compile Include="Controllers\AnnouncementViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AnnouncementViewController.Designer.cs">
+      <DependentUpon>AnnouncementViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CloneScheduleViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CloneScheduleViewController.Designer.cs">
+      <DependentUpon>CloneScheduleViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DisableCloneSchedulerViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\DisableCloneSchedulerViewController.Designer.cs">
+      <DependentUpon>DisableCloneSchedulerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DocumentViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\DocumentViewController.Designer.cs">
+      <DependentUpon>DocumentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\FeedbackReplyViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\FeedbackReplyViewController.Designer.cs">
+      <DependentUpon>FeedbackReplyViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\InventoryController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\InventoryController.Designer.cs">
+      <DependentUpon>InventoryController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MoTDViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\MoTDViewController.Designer.cs">
+      <DependentUpon>MoTDViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NewsAddShortDescriptionViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewsAddShortDescriptionViewController.Designer.cs">
+      <DependentUpon>NewsAddShortDescriptionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NewsRelatedOrganizationViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewsRelatedOrganizationViewController.Designer.cs">
+      <DependentUpon>NewsRelatedOrganizationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\OfficeLeaveViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\OfficeLeaveViewController.Designer.cs">
+      <DependentUpon>OfficeLeaveViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ProjectManagementControllers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ProjectManagementControllers.Designer.cs">
+      <DependentUpon>ProjectManagementControllers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReactivateDashboardEditAction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReactivateDashboardEditAction.Designer.cs">
+      <DependentUpon>ReactivateDashboardEditAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReportCentralController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReportCentralController.Designer.cs">
+      <DependentUpon>ReportCentralController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ScheduleAddParticipantViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ScheduleAddParticipantViewController.Designer.cs">
+      <DependentUpon>ScheduleAddParticipantViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SchedulerViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\SchedulerViewController.Designer.cs">
+      <DependentUpon>SchedulerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ScheduleViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ScheduleViewController.Designer.cs">
+      <DependentUpon>ScheduleViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\TaskViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\TaskViewController.Designer.cs">
+      <DependentUpon>TaskViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCodes\Calculator.cs" />
+    <Compile Include="CustomCodes\Mailer.cs" />
+    <Compile Include="CustomCodes\PdfHandling.cs" />
+    <Compile Include="CustomInterface\IPictureItem.cs" />
+    <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="ModelExtender\IViewHintModel.cs" />
+    <Compile Include="Module.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Module.Designer.cs">
+      <DependentUpon>Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\AnnouncementViewController.resx">
+      <DependentUpon>AnnouncementViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DocumentViewController.resx">
+      <DependentUpon>DocumentViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\FeedbackReplyViewController.resx">
+      <DependentUpon>FeedbackReplyViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\InventoryController.resx">
+      <DependentUpon>InventoryController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\NewsAddShortDescriptionViewController.resx">
+      <DependentUpon>NewsAddShortDescriptionViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\NewsRelatedOrganizationViewController.resx">
+      <DependentUpon>NewsRelatedOrganizationViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\OfficeLeaveViewController.resx">
+      <DependentUpon>OfficeLeaveViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ProjectManagementControllers.resx">
+      <DependentUpon>ProjectManagementControllers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ReportCentralController.resx">
+      <DependentUpon>ReportCentralController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ScheduleAddParticipantViewController.resx">
+      <DependentUpon>ScheduleAddParticipantViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ScheduleViewController.resx">
+      <DependentUpon>ScheduleViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatabaseUpdate\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BusinessObjects\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controllers\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\GotoDocumentWin.ets" />
+    <None Include="FunctionalTests\sample.ets" />
+    <None Include="Images\ReadMe.txt" />
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.id-ID.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\announcement.png" />
+    <EmbeddedResource Include="Images\announcement_32x32.png" />
+    <EmbeddedResource Include="Images\archive.png" />
+    <EmbeddedResource Include="Images\archive_32x32.png" />
+    <EmbeddedResource Include="Images\building.png" />
+    <EmbeddedResource Include="Images\building_32x32.png" />
+    <EmbeddedResource Include="Images\car.png" />
+    <EmbeddedResource Include="Images\cart.png" />
+    <EmbeddedResource Include="Images\cart_32x32.png" />
+    <EmbeddedResource Include="Images\car_32x32.png" />
+    <EmbeddedResource Include="Images\checkedin.png" />
+    <EmbeddedResource Include="Images\checkedin_32x32.png" />
+    <EmbeddedResource Include="Images\checkin.png" />
+    <EmbeddedResource Include="Images\checkin_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Checkout.png" />
+    <EmbeddedResource Include="Images\BO_Checkout_32x32.png" />
+    <EmbeddedResource Include="Images\CompleteTask.png" />
+    <EmbeddedResource Include="Images\CompleteTask_32x32.png" />
+    <EmbeddedResource Include="Images\degree.png" />
+    <EmbeddedResource Include="Images\degree_32x32.png" />
+    <EmbeddedResource Include="Images\dictionary.png" />
+    <EmbeddedResource Include="Images\dictionary_32x32.png" />
+    <EmbeddedResource Include="Images\driver.png" />
+    <EmbeddedResource Include="Images\driver_32x32.png" />
+    <EmbeddedResource Include="Images\exchange.png" />
+    <EmbeddedResource Include="Images\exchange_32x32.png" />
+    <EmbeddedResource Include="Images\groupadd.png" />
+    <EmbeddedResource Include="Images\groupadd_32x32.png" />
+    <EmbeddedResource Include="Images\groupremove.png" />
+    <EmbeddedResource Include="Images\groupremove_32x32.png" />
+    <EmbeddedResource Include="Images\Inventory.png" />
+    <EmbeddedResource Include="Images\InventoryCategory.png" />
+    <EmbeddedResource Include="Images\InventoryCategory_32x32.png" />
+    <EmbeddedResource Include="Images\InventoryItems.png" />
+    <EmbeddedResource Include="Images\InventoryItems_32x32.png" />
+    <EmbeddedResource Include="Images\InventoryRequisition.png" />
+    <EmbeddedResource Include="Images\InventoryRequisition_32x32.png" />
+    <EmbeddedResource Include="Images\Inventory_32x32.png" />
+    <EmbeddedResource Include="Images\judge.png" />
+    <EmbeddedResource Include="Images\judge_32x32.png" />
+    <EmbeddedResource Include="Images\law.png" />
+    <EmbeddedResource Include="Images\law_32x32.png" />
+    <EmbeddedResource Include="Images\logo.png" />
+    <EmbeddedResource Include="Images\logo_32x32.png" />
+    <EmbeddedResource Include="Images\logo_sec.png" />
+    <EmbeddedResource Include="Images\Mail.png" />
+    <EmbeddedResource Include="Images\Mail_32x32.png" />
+    <EmbeddedResource Include="Images\meeting.png" />
+    <EmbeddedResource Include="Images\meeting_32x32.png" />
+    <EmbeddedResource Include="Images\News.png" />
+    <EmbeddedResource Include="Images\News_32x32.png" />
+    <EmbeddedResource Include="Images\NoImage.png" />
+    <EmbeddedResource Include="Images\Province.png" />
+    <EmbeddedResource Include="Images\Province_32x32.png" />
+    <EmbeddedResource Include="Images\Region.png" />
+    <EmbeddedResource Include="Images\Region_32x32.png" />
+    <EmbeddedResource Include="Images\school.png" />
+    <EmbeddedResource Include="Images\school_32x32.png" />
+    <EmbeddedResource Include="Images\settings.png" />
+    <EmbeddedResource Include="Images\settings_32x32.png" />
+    <EmbeddedResource Include="Images\StartTask.png" />
+    <EmbeddedResource Include="Images\StartTask_32x32.png" />
+    <EmbeddedResource Include="Images\SubRegion.png" />
+    <EmbeddedResource Include="Images\SubRegion_32x32.png" />
+    <EmbeddedResource Include="Images\verify.png" />
+    <EmbeddedResource Include="Images\verify_32x32.png" />
+    <EmbeddedResource Include="Images\Wait.png" />
+    <EmbeddedResource Include="Images\Wait_32x32.png" />
+    <EmbeddedResource Include="Images\logo_sec_a.png" />
+    <None Include="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes3.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes5.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes7.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes8.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes9.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes10.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes11.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes12.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes13.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes14.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes15.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes16.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes17.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes18.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes19.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes20.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes21.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes22.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes23.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes26.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Images\image.png" />
+    <EmbeddedResource Include="Images\image_32x32.png" />
+    <None Include="FunctionalTests\GotoGallery.ets" />
+    <EmbeddedResource Include="Images\BO_Gallery.png" />
+    <EmbeddedResource Include="Images\BO_Gallery_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Photo.png" />
+    <EmbeddedResource Include="Images\BO_Photo_32x32.png" />
+    <None Include="UnusableNodes27.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Images\BO_Library.png" />
+    <EmbeddedResource Include="Images\BO_Library_32x32.png" />
+    <None Include="UnusableNodes29.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes30.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Welcome.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

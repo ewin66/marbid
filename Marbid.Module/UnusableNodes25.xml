@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" IsColumnAutoWidth="True" />
+    <ListView Id="Contact_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="CorporateEmail" Index="2" Width="112" />
+        <ColumnInfo Id="Position" Index="3" />
+        <ColumnInfo Id="Address" Removed="True" />
+        <ColumnInfo Id="BirthDate" Removed="True" />
+        <ColumnInfo Id="FirstName" Removed="True" />
+        <ColumnInfo Id="Gender" Removed="True" />
+        <ColumnInfo Id="HomePhone" Removed="True" />
+        <ColumnInfo Id="LastName" Removed="True" />
+        <ColumnInfo Id="MaritalStatus" Removed="True" />
+        <ColumnInfo Id="MobilePhone1" Removed="True" />
+        <ColumnInfo Id="MobilePhone2" Removed="True" />
+        <ColumnInfo Id="OfficeExtension" Removed="True" />
+        <ColumnInfo Id="PersonalEmail" Removed="True" />
+        <ColumnInfo Id="Photo" Removed="True" />
+        <ColumnInfo Id="PlaceOfBirth" Removed="True" />
+        <ColumnInfo Id="Province" Removed="True" />
+        <ColumnInfo Id="Region" Removed="True" />
+        <ColumnInfo Id="Religion" Removed="True" />
+        <ColumnInfo Id="SubRegion" Removed="True" />
+        <ColumnInfo Id="UserType" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Feedback_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Auto50766646-d61f-4f7e-9365-47f2b8cf8fad">
+              <LayoutGroup Id="Auto0bfbd237-418e-4f6b-9bad-fb5bba1b38e2">
+                <LayoutItem Id="CretedBy" ViewItem="CretedBy" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Task_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Autoef7200c6-60b7-46fd-8287-1229ac9a048a">
+            <LayoutItem Id="MinutesOfMeeting" ViewItem="MinutesOfMeeting" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
