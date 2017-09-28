@@ -180,13 +180,13 @@
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="CloneObjectModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="EmailModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="LogicModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="SchedulerModuleBase" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="XpandSecurityModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="XpandValidationModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="CloneObjectModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="EmailModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="LogicModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSecurityModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="XpandValidationModule" Version="17.1.6.3" IsNewNode="True" />
   </SchemaModules>
   <Validation>
     <Rules>
@@ -280,6 +280,9 @@
         <ColumnInfo Id="CreatedBy" Index="3" />
         <ColumnInfo Id="RefNumber" Index="4" />
       </Columns>
+      <Sorting>
+        <SortProperty Id="@fbfe8e6c-e997-4bd9-9f40-8602b67b03c1" PropertyName="CreateDate" Direction="Descending" IsNewNode="True" />
+      </Sorting>
     </ListView>
     <DetailView Id="AnnouncementCategory_DetailView">
       <Layout>
@@ -1174,7 +1177,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="HomeDashboard_Announcement_ListView" ClassName="Marbid.Module.BusinessObjects.HRM.Announcement" TopReturnedObjects="5" Criteria="[Published] = True And [AnnouncementRecepients][[Employee.Oid] = CurrentUserId()]" MasterDetailMode="ListViewOnly" IsNewNode="True">
+    <ListView Id="HomeDashboard_Announcement_ListView" ClassName="Marbid.Module.BusinessObjects.HRM.Announcement" TopReturnedObjects="50" Criteria="[Published] = True And [AnnouncementRecepients][[Employee.Oid] = CurrentUserId()]" MasterDetailMode="ListViewOnly" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Subject" PropertyName="Subject" Width="488" Index="0" IsNewNode="True" />
         <ColumnInfo Id="Category" PropertyName="Category" Width="128" Index="1" IsNewNode="True" />
@@ -1402,41 +1405,37 @@
         <PropertyEditor Id="SourceURL" RowCount="0" />
       </Items>
       <Layout>
-        <LayoutGroup Id="Auto0a0a6d30-07fc-4fd2-ac06-7cccc03166c1" ShowCaption="False" Caption="Auto0a0a6d30-07fc-4fd2-ac06-7cccc03166c1(1)" Direction="Horizontal" Index="0" RelativeSize="18" IsNewNode="True">
-          <LayoutItem Id="Cover" ViewItem="Cover" Index="0" RelativeSize="17.6" CaptionLocation="Top" IsNewNode="True" />
-          <LayoutGroup Id="Auto24e9d126-2cbc-4298-a68e-5b9f14eec4a2" ShowCaption="False" Caption="Auto24e9d126-2cbc-4298-a68e-5b9f14eec4a2(3)" Index="1" RelativeSize="82.4" IsNewNode="True">
-            <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="23.703703703703702" IsNewNode="True" />
-            <LayoutGroup Id="Autodfbe8d4b-9454-49f4-b8c3-a54cb652ade9" ShowCaption="False" Caption="Autodfbe8d4b-9454-49f4-b8c3-a54cb652ade9(2)" Direction="Horizontal" Index="1" RelativeSize="26.666666666666668" IsNewNode="True">
-              <LayoutItem Id="Author" ViewItem="Author" Index="0" RelativeSize="30.420711974110031" IsNewNode="True" />
-              <LayoutGroup Id="Auto6da0c5a5-730d-4b91-aeb7-38b7ba8146a8" ShowCaption="False" Caption="Auto6da0c5a5-730d-4b91-aeb7-38b7ba8146a8(7)" Index="1" RelativeSize="69.579288025889966" IsNewNode="True">
-                <LayoutGroup Id="Auto677c3980-2240-4c9e-8a94-0745114bd9ee" ShowCaption="False" Caption="Auto677c3980-2240-4c9e-8a94-0745114bd9ee(8)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
-                  <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="0" RelativeSize="43.720930232558139" IsNewNode="True" />
-                  <LayoutItem Id="Published" ViewItem="Published" Index="1" RelativeSize="56.279069767441861" IsNewNode="True" />
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" Direction="Vertical" RelativeSize="17.135549872122763">
+            <LayoutGroup Id="News_col1" ShowCaption="False" Index="0" RelativeSize="100" Caption="News_col1" IsNewNode="True">
+              <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="23.880597014925375" IsNewNode="True" />
+              <LayoutGroup Id="Auto092aa156-361c-405f-a323-07e5a75f1256" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="17.910447761194028" IsNewNode="True">
+                <LayoutItem Id="RelatedOrganization" ViewItem="RelatedOrganization" Index="0" RelativeSize="50.06729475100942" IsNewNode="True" />
+                <LayoutItem Id="NewsCategory" ViewItem="NewsCategory" Index="1" RelativeSize="49.93270524899058" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Autod59f3f69-8c9f-49f7-b5ab-edfe9527d149" ShowCaption="False" Caption="" Index="2" RelativeSize="58.208955223880594" IsNewNode="True">
+                <LayoutGroup Id="Autof78f1268-f639-4dbe-b7c8-f6fbd01b6d49" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="30.76923076923077" IsNewNode="True">
+                  <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="0" RelativeSize="50.06729475100942" IsNewNode="True" />
+                  <LayoutItem Id="Author" ViewItem="Author" Index="1" RelativeSize="49.93270524899058" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto169e1672-5a4a-41df-b283-b2256a043829" ShowCaption="False" Caption="" Index="1" RelativeSize="69.230769230769226" IsNewNode="True">
+                  <LayoutItem Id="SourceURL" ViewItem="SourceURL" Index="0" RelativeSize="44.444444444444443" IsNewNode="True" />
+                  <LayoutGroup Id="Auto4702a83b-6897-4bf4-af42-2e06075a51bb" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="55.555555555555557" IsNewNode="True">
+                    <LayoutItem Id="Cover" ViewItem="Cover" Index="0" RelativeSize="50.06729475100942" IsNewNode="True" />
+                    <LayoutItem Id="Published" ViewItem="Published" Index="1" RelativeSize="49.93270524899058" IsNewNode="True" />
+                  </LayoutGroup>
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Auto0d323363-4438-4dab-ab3d-9ecb6817b22f" ShowCaption="False" Caption="Auto0d323363-4438-4dab-ab3d-9ecb6817b22f(6)" Direction="Horizontal" Index="2" RelativeSize="22.222222222222221" IsNewNode="True">
-              <LayoutItem Id="NewsCategory" ViewItem="NewsCategory" Index="0" RelativeSize="46.278317152103561" IsNewNode="True" />
-              <LayoutItem Id="RelatedOrganization" ViewItem="RelatedOrganization" Index="1" RelativeSize="53.721682847896439" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="Autoe1a38586-f283-4fa5-9ee2-9873543a231c" ShowCaption="False" Caption="Autoe1a38586-f283-4fa5-9ee2-9873543a231c(12)" Direction="Horizontal" Index="3" RelativeSize="27.407407407407408" IsNewNode="True">
-              <LayoutItem Id="SourceURL" ViewItem="SourceURL" Index="0" RelativeSize="63.26860841423948" IsNewNode="True" />
-              <LayoutItem Id="NewsOpenSource" ViewItem="NewsOpenSource" Index="1" RelativeSize="36.73139158576052" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-        <LayoutGroup Id="@6beab25d-fbc4-49a2-9bff-7850503b84ff" IsNewNode="True">
-          <LayoutItem Id="Content" ViewItem="Content" Index="1" RelativeSize="82" CaptionLocation="Top" IsNewNode="True" />
-        </LayoutGroup>
-        <LayoutGroup Id="Main" RelativeSize="100" Direction="Horizontal" Removed="True">
-          <LayoutGroup Id="RelatedOrganizations_Group" ShowCaption="True" Caption="Related Organizations" Index="0" RelativeSize="100" Direction="Horizontal" Removed="True" />
-          <LayoutGroup Id="SimpleEditors" Direction="Horizontal" RelativeSize="33.333333333333336" Removed="True">
             <LayoutGroup Id="News" Removed="True" />
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" RelativeSize="33.333333333333336" Caption="SizeableEditors" Direction="Horizontal" Removed="True">
-            <LayoutItem Id="Content" RelativeSize="66.4" Index="0" Removed="True" />
-            <LayoutItem Id="SourceURL" RelativeSize="100" Index="0" Removed="True" />
-            <LayoutItem Id="ShortDescription" RelativeSize="33.2" Removed="True" />
+          <LayoutGroup Id="SizeableEditors" RelativeSize="44.373401534526856" Caption="SizeableEditors">
+            <LayoutItem Id="Content" RelativeSize="100" Index="0" />
+            <LayoutItem Id="SourceURL" RelativeSize="8.9552238805970141" Index="1" Removed="True" />
+            <LayoutItem Id="ShortDescription" RelativeSize="33.134328358208954" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="RelatedOrganizations_Group" Direction="Vertical" RelativeSize="38.491048593350385">
+            <LayoutItem Id="RelatedOrganizations" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -1455,6 +1454,9 @@
         <ColumnInfo Id="Content" Removed="True" />
         <ColumnInfo Id="SourceURL" Removed="True" />
       </Columns>
+      <Sorting>
+        <SortProperty Id="@96d8f45f-515d-4b10-ae97-3946b3611089" PropertyName="CreateDate" Direction="Descending" IsNewNode="True" />
+      </Sorting>
     </ListView>
     <DetailView Id="Notes_DetailView">
       <Layout>
@@ -1592,17 +1594,17 @@
     </ListView>
     <DashboardView Id="PersonalDashboard" Caption="Personal Dashboard" IsNewNode="True">
       <Items IsNewNode="True">
-        <DashboardViewItem Id="Announcement" ViewId="HomeDashboard_Announcement_ListView" Caption="Announcement" IsNewNode="True" />
+        <DashboardViewItem Id="Announcement" ViewId="HomeDashboard_Announcement_ListView" Caption="Announcement" ActionsToolbarVisibility="Hide" IsNewNode="True" />
         <DashboardViewItem Id="MessageOfTheDay" ViewId="HomeDashboard_MessageOfTheDay_DetailView" ActionsToolbarVisibility="Hide" Caption="Message of The Day" IsNewNode="True" />
         <DashboardViewItem Id="MyPendingTask" ViewId="HomeDashboard_Task_ListView" Caption="My Pending Task" IsNewNode="True" />
         <DashboardViewItem Id="MyScheduleToday" ViewId="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" Caption="My Schedule Today" IsNewNode="True" />
-        <DashboardViewItem Id="News" ViewId="HomeDashboard_News_ListView" Caption="News" IsNewNode="True" />
+        <DashboardViewItem Id="News" ViewId="HomeDashboard_News_ListView" Caption="News" ActionsToolbarVisibility="Hide" IsNewNode="True" />
       </Items>
       <Layout IsNewNode="True">
         <LayoutGroup Id="Main" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
           <LayoutItem Id="News" ViewItem="News" Index="0" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
-          <LayoutItem Id="MyScheduleToday" ViewItem="MyScheduleToday" Index="1" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
-          <LayoutItem Id="Announcement" ViewItem="Announcement" Index="2" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
+          <LayoutItem Id="Announcement" ViewItem="Announcement" Index="1" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
+          <LayoutItem Id="MyScheduleToday" ViewItem="MyScheduleToday" Index="2" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
           <LayoutItem Id="MyPendingTask" ViewItem="MyPendingTask" Index="3" ShowCaption="True" MinSize="1, 200" SizeConstraintsType="Custom" CaptionLocation="Top" RelativeSize="25" IsNewNode="True" />
         </LayoutGroup>
       </Layout>

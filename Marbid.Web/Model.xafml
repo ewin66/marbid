@@ -119,25 +119,71 @@
     </Items>
   </NavigationItems>
   <SchemaModules>
-    <SchemaModule Name="CloneObjectModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="EmailModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="LogicModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="SchedulerAspNetModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="SchedulerModuleBase" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="SystemAspNetModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="17.1.5.0" IsNewNode="True" />
-    <SchemaModule Name="XpandSecurityModule" Version="17.1.5.1" IsNewNode="True" />
-    <SchemaModule Name="XpandValidationModule" Version="17.1.5.1" IsNewNode="True" />
+    <SchemaModule Name="CloneObjectModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="EmailModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="LogicModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="SchedulerAspNetModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSecurityModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="XpandValidationModule" Version="17.1.6.3" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <ListView Id="Announcement_ListView">
+      <Variants>
+        <Variant Id="@176e79c4-c402-47d5-a906-425c3cfebbf7" ViewID="Announcement_ListView" Caption="Headline View" Index="0" IsNewNode="True" />
+        <Variant Id="@b4386d24-966d-4788-a2cd-6d7f020ee75a" Caption="Grid View" Index="1" ViewID="Announcement_ListView_Grid" IsNewNode="True" />
+      </Variants>
+    </ListView>
+    <ListView Id="Announcement_ListView_Grid" ClassName="Marbid.Module.BusinessObjects.HRM.Announcement" MasterDetailMode="ListViewOnly" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [Published] = True And [AnnouncementRecepients][[Employee.Oid] = CurrentUserId()]" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Attachment" PropertyName="Attachment" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Content" PropertyName="Content" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ModifiedBy" PropertyName="ModifiedBy" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="ModifyDate" PropertyName="ModifyDate" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Published" PropertyName="Published" Index="-1" Width="50" IsNewNode="True" />
+        <ColumnInfo Id="RecepientEmails" PropertyName="RecepientEmails" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="SendMail" PropertyName="SendMail" Index="-1" Width="50" IsNewNode="True" />
+        <ColumnInfo Id="URL" PropertyName="URL" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Subject" PropertyName="Subject" Index="0" Width="187" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Index="1" Width="106" IsNewNode="True" />
+        <ColumnInfo Id="CreateDate" PropertyName="CreateDate" Index="2" Width="70" SortIndex="0" SortOrder="Descending" IsNewNode="True" />
+        <ColumnInfo Id="CreatedBy" PropertyName="CreatedBy" Index="3" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="RefNumber" PropertyName="RefNumber" Index="4" Width="70" IsNewNode="True" />
+      </Columns>
+    </ListView>
     <ListView Id="BIDashboard_ListView" DetailViewID="DashboardViewer_DetailView" />
     <DetailView Id="Document_DetailView">
       <Items>
         <PropertyEditor Id="Attachment_Preview" PropertyEditorType="Marbid.Module.Web.Editors.PdfPropertyEditor" />
       </Items>
     </DetailView>
-    <ListView Id="HomeDashboard_News_ListView" PageSize="5" />
+    <ListView Id="HomeDashboard_Announcement_ListView" EditorTypeName="Marbid.Module.Web.Editors.ASPxNewsListEditor" />
+    <ListView Id="HomeDashboard_News_ListView" PageSize="5" EditorTypeName="Marbid.Module.Web.Editors.ASPxNewsListEditor" />
     <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <ListView Id="News_ListView">
+      <Variants>
+        <Variant Id="@8e130f26-5d12-4924-85d0-8bf1b5f03888" ViewID="News_ListView" Caption="Headline View" Index="0" IsNewNode="True" />
+        <Variant Id="@45464b14-9a83-457f-ad84-68566747409b" Caption="Grid View" ViewID="News_ListView_GridView" Index="1" IsNewNode="True" />
+      </Variants>
+    </ListView>
+    <ListView Id="News_ListView_GridView" ClassName="Marbid.Module.BusinessObjects.CRM.News" Criteria="[Published] = True Or [Author.Oid] = CurrentUserId() And [Published] = False" PreviewColumnName="ShortDescription" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="CleanContent" PropertyName="CleanContent" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ImageURL" PropertyName="ImageURL" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ShortDescription" PropertyName="ShortDescription" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="URL" PropertyName="URL" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Title" PropertyName="Title" Index="0" Width="475" IsNewNode="True" />
+        <ColumnInfo Id="NewsCategory" PropertyName="NewsCategory" Index="1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="CreateDate" PropertyName="CreateDate" Index="2" Width="70" SortIndex="0" SortOrder="Descending" IsNewNode="True" />
+      </Columns>
+      <Sorting IsNewNode="True">
+        <SortProperty Id="@96d8f45f-515d-4b10-ae97-3946b3611089" PropertyName="CreateDate" Direction="Descending" IsNewNode="True" />
+      </Sorting>
+    </ListView>
     <ListView Id="Organization_Visits_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
     <ListView Id="People_Schedules_ListView" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
     <ListView Id="PhotoGallery_Photos_ListView" EditorTypeName="Marbid.Module.Web.Editors.ASPxCustomListEditor">

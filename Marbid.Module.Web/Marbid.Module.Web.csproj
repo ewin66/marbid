@@ -326,6 +326,8 @@
     <Compile Include="Editors\ASPxCardListView.cs" />
     <Compile Include="Editors\ASPxCustomListEditor.cs" />
     <Compile Include="Editors\ASPxImageGalleryWeb.cs" />
+    <Compile Include="Editors\ASPxNewsListEditor.cs" />
+    <Compile Include="Editors\ASPxNewsListEditorLong.cs" />
     <Compile Include="Editors\PdfPropertyEditorWeb.cs" />
     <Compile Include="IInfoPanelTemplateWeb.cs" />
     <Compile Include="WebModule.cs">
