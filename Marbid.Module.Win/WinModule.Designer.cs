@@ -1,4 +1,4 @@
-﻿namespace Marbid.Module.Win {
+namespace Marbid.Module.Win {
     partial class MarbidWindowsFormsModule {
         /// <summary> 
         /// Required designer variable.
@@ -28,6 +28,7 @@
             // 
             this.RequiredModuleTypes.Add(typeof(Marbid.Module.MarbidModule));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule));
+			this.RequiredModuleTypes.Add(typeof(Xpand.ExpressApp.Security.Win.XpandSecurityWinModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Chart.Win.ChartWindowsFormsModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Dashboards.Win.DashboardsWindowsFormsModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule));

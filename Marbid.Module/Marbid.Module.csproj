@@ -255,6 +255,9 @@
     <Reference Include="Xpand.ExpressApp.Logic, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Xpand.ExpressApp.Security, Version=17.1.6.3, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Xpand.ExpressApp.Validation, Version=17.1.5.1, Culture=neutral, PublicKeyToken=c52ffed5d5ff0958, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -428,6 +431,9 @@
     </Compile>
     <Compile Include="Controllers\OfficeLeaveViewController.Designer.cs">
       <DependentUpon>OfficeLeaveViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PreventDetailViewController.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\ProjectManagementControllers.cs">
       <SubType>Component</SubType>
@@ -726,6 +732,29 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes30.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Images\announcement_48x48.png" />
+    <EmbeddedResource Include="Images\News_48x48.png" />
+    <EmbeddedResource Include="Images\BO_Scheduler.png" />
+    <EmbeddedResource Include="Images\BO_Scheduler_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Scheduler_48x48.png" />
+    <EmbeddedResource Include="Images\BO_Contact.png" />
+    <EmbeddedResource Include="Images\BO_Contact_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Contect_48x48.png" />
+    <EmbeddedResource Include="Images\BO_Task.png" />
+    <EmbeddedResource Include="Images\BO_Task_48x48.png" />
+    <EmbeddedResource Include="Images\BO_Task_32x32.png" />
+    <EmbeddedResource Include="Images\building_48x48.png" />
+    <EmbeddedResource Include="Images\exchange_48x48.png" />
+    <EmbeddedResource Include="Images\law_48x48.png" />
+    <EmbeddedResource Include="Images\Mail_48x48.png" />
+    <None Include="UnusableNodes31.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes32.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

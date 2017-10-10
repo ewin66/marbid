@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.ComponentModel;
 using System.Data;
+using WebControls;
 
 namespace Marbid.Module.Web.Editors
 {
@@ -144,7 +145,8 @@ namespace Marbid.Module.Web.Editors
                 control.EncodeHtml = true;
                 control.ItemSettings.MaxLength = 250;
                 control.ItemSettings.TailText = "Read More";
-                control.ItemSettings.TailPosition = TailPosition.KeepWithLastWord;
+                control.ItemSettings.TailPosition = TailPosition.Inline;
+                control.ItemSettings.ShowHeaderAsLink = true;
                 control.Theme = "Metropolis";
                 control.ItemSettings.DateVerticalPosition = DateVerticalPosition.Header;
                 control.RowPerPage = 3;

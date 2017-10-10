@@ -18,7 +18,14 @@ using DevExpress.ExpressApp.Templates;
 
 namespace Marbid.Module.Web
 {
-  [ToolboxItemFilter("Xaf.Platform.Web")]
+    public interface IHintPlaceHolderWeb : IFrameTemplate
+    {
+        Control HintPlaceHolder
+        {
+            get;
+        }
+    }
+    [ToolboxItemFilter("Xaf.Platform.Web")]
   // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppModuleBasetopic.aspx.
   public sealed partial class MarbidAspNetModule : ModuleBase
   {

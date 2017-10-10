@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DashboardView Id="PersonalDashboard">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutItem Id="Announcement" RelativeSize="23.980815347721823" Removed="True" />
+          <LayoutItem Id="MyPendingTask" RelativeSize="22.573363431151243" ShowCaption="False" Removed="True" />
+          <LayoutItem Id="MyScheduleToday" RelativeSize="23.255813953488371" Removed="True" />
+          <LayoutItem Id="News" Removed="True" />
+        </LayoutGroup>
+      </Layout>
+    </DashboardView>
+  </Views>
+</Application>

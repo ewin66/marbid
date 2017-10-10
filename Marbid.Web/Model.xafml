@@ -161,8 +161,13 @@
       </Items>
     </DetailView>
     <ListView Id="HomeDashboard_Announcement_ListView" EditorTypeName="Marbid.Module.Web.Editors.ASPxNewsListEditor" />
-    <ListView Id="HomeDashboard_News_ListView" PageSize="5" EditorTypeName="Marbid.Module.Web.Editors.ASPxNewsListEditor" />
+    <ListView Id="HomeDashboard_News_ListView" PageSize="5" EditorTypeName="Marbid.Module.Web.Editors.ASPxNewsListEditor" TopReturnedObjects="15" />
     <ListView Id="HomeDashboard_Schedule_ListView_Variant_GridView_OnlyUser" EditorTypeName="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxGridListEditor" />
+    <DetailView Id="News_DetailView">
+      <Items>
+        <PropertyEditor Id="Cover" ImageEditorMode="DropDownPictureEdit" />
+      </Items>
+    </DetailView>
     <ListView Id="News_ListView">
       <Variants>
         <Variant Id="@8e130f26-5d12-4924-85d0-8bf1b5f03888" ViewID="News_ListView" Caption="Headline View" Index="0" IsNewNode="True" />

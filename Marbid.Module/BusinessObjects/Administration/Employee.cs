@@ -21,7 +21,7 @@ using DevExpress.Persistent.Base.Security;
 namespace Marbid.Module.BusinessObjects.Administration
 {
    [DefaultClassOptions,
- DefaultProperty("FullName")]
+ DefaultProperty("UserName")]
    [CurrentUserDisplayImage("Photo")]
    [ListViewFilter("All Employees", null, Index = 0)]
    [ListViewFilter("Active Employees", "[IsActive] = true", Index = 1)]

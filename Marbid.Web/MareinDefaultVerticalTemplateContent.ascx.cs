@@ -13,11 +13,11 @@ using DevExpress.ExpressApp.Web.SystemModule;
 namespace Marbid.Web
 {
   public partial class MareinDefaultVerticalTemplateContent : TemplateContent, IXafPopupWindowControlContainer, IXafSecurityActionContainerHolder, IHeaderImageControlContainer
-  {
+    {
     public Control HintPlaceHolder { get { return HINT; } }
     static MareinDefaultVerticalTemplateContent()
     {
-      //AdditionalClass = "sizeLimit";
+      AdditionalClass = "sizeLimit";
     }
 
     public static void ClearSizeLimit() { AdditionalClass = ""; }

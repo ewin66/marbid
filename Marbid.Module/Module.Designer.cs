@@ -1,4 +1,4 @@
-﻿namespace Marbid.Module {
+namespace Marbid.Module {
 	partial class MarbidModule {
 		/// <summary> 
 		/// Required designer variable.
@@ -38,6 +38,7 @@
       this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.Resource));
       this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.HCategory));
       this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
+			this.RequiredModuleTypes.Add(typeof(Xpand.ExpressApp.Security.XpandSecurityModule));
       this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.AuditTrail.AuditTrailModule));
       this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule));
       this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Chart.ChartModule));

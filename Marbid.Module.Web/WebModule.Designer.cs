@@ -1,4 +1,4 @@
-﻿namespace Marbid.Module.Web {
+namespace Marbid.Module.Web {
     partial class MarbidAspNetModule {
         /// <summary> 
         /// Required designer variable.
@@ -28,6 +28,7 @@
             // 
             this.RequiredModuleTypes.Add(typeof(Marbid.Module.MarbidModule));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule));
+			this.RequiredModuleTypes.Add(typeof(Xpand.ExpressApp.Security.Web.XpandSecurityWebModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Chart.Web.ChartAspNetModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Dashboards.Web.DashboardsAspNetModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.FileAttachments.Web.FileAttachmentsAspNetModule));

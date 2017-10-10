@@ -29,7 +29,8 @@ namespace Marbid.Module.BusinessObjects.CRM
    [NavigationItem("Main Menu")]
    [Appearance("ScheduleDisableProperty", TargetItems = "CreatedBy, ModifiedBy, CreateDate, ModifyDate, AssignedDriver, CarAssignedBy, CarAssignmentNote, AssignedCar, CarAssignedDate", Enabled = false)]
    [Appearance("DisableClone", Criteria = "[CreatedBy.Oid] <> CurrentUserId()", TargetItems = "CloneObject", Enabled = false)]
-   [FileAttachment("ExternalMoM")]
+   //[FileAttachment("ExternalMoM")]
+   [DefaultListViewOptions(false, NewItemRowPosition.None)]
    public class Schedule : DevExpress.Persistent.BaseImpl.Event
    {
       private System.Boolean _isCarAssigned;
@@ -153,7 +154,8 @@ namespace Marbid.Module.BusinessObjects.CRM
          }
       }
       [DevExpress.Xpo.AssociationAttribute("Schedules-AssignedCar")]
-      public Marbid.Module.BusinessObjects.CRM.Car AssignedCar
+        [ModelDefault("Caption", "Car")]
+        public Marbid.Module.BusinessObjects.CRM.Car AssignedCar
       {
          get
          {
@@ -165,6 +167,7 @@ namespace Marbid.Module.BusinessObjects.CRM
          }
       }
       [DevExpress.Xpo.AssociationAttribute("Schedules-AssignedDriver")]
+      [ModelDefault("Caption", "Driver")]
       public Marbid.Module.BusinessObjects.CRM.Driver AssignedDriver
       {
          get

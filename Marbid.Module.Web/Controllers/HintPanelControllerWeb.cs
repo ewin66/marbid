@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
@@ -12,56 +11,124 @@ using System.Web.UI;
 using DevExpress.ExpressApp.Templates;
 using Marbid.Module.BusinessObjects.Administration;
 using DevExpress.Data.Filtering;
+using Marbid.Module.BusinessObjects.CRM;
+using DevExpress.Xpo;
+using DevExpress.ExpressApp.Utils;
+using System.Collections;
 
 namespace Marbid.Module.Web.Controllers
 {
-   public interface IHintPlaceHolderWeb : IFrameTemplate
-   {
-      Control HintPlaceHolder
-      {
-         get;
-      }
-   }
-   public class InfoPanelViewControllerWeb : CustomizeTemplateViewControllerBase<IHintPlaceHolderWeb>
-   {
-      LiteralControl literal;
-      protected override void AddControlsToTemplateCore(IHintPlaceHolderWeb template)
-      {
-         if (literal == null) literal = new LiteralControl();
-         if (template.HintPlaceHolder != null)
-         {
-            template.HintPlaceHolder.Controls.Add(literal);
-         }
-      }
-      protected override void RemoveControlsFromTemplateCore(IHintPlaceHolderWeb template)
-      {
-         if (template.HintPlaceHolder != null)
-         {
-            template.HintPlaceHolder.Controls.Remove(literal);
-            literal = null;
-         }
-      }
-      protected override void UpdateControls(View view)
-      {
-         UpdateControls();
-      }
-      protected override void UpdateControls(object currentObject)
-      {
-         UpdateControls();
-      }
-      void UpdateControls()
-      {
-         literal.Text = "";
-         literal.Visible = false;
-         IObjectSpace objectSpace = Application.CreateObjectSpace();
-         ViewItemHints hints = objectSpace.FindObject<ViewItemHints>(CriteriaOperator.Parse("ViewID = ?", View.Id));
-         if (hints != null)
-         {
-            literal.Text += hints.Hint;
-            
-            literal.Visible = true;
-         }
-      }
-   }
+    public class InfoPanelViewControllerWeb : CustomizeTemplateViewControllerBase<IHintPlaceHolderWeb>
+    {
+        DevExpress.Web.ASPxImageSlider slider;
+        LiteralControl literal;
+        protected override void AddControlsToTemplateCore(IHintPlaceHolderWeb template)
+        {
+            if (literal == null) literal = new LiteralControl();
+            if (slider == null) slider = new DevExpress.Web.ASPxImageSlider();
+            if (template.HintPlaceHolder != null)
+            {
+                template.HintPlaceHolder.Controls.Add(literal);
+                template.HintPlaceHolder.Controls.Add(slider);
+            }
+        }
+        protected override void RemoveControlsFromTemplateCore(IHintPlaceHolderWeb template)
+        {
+            if (template.HintPlaceHolder != null)
+            {
+                template.HintPlaceHolder.Controls.Remove(literal);
+                template.HintPlaceHolder.Controls.Remove(slider);
+                literal = null;
+                slider = null;
+            }
+        }
+        protected override void UpdateControls(View view)
+        {
+            UpdateControls();
+        }
+        protected override void UpdateControls(object currentObject)
+        {
+            UpdateControls();
+        }
+        void UpdateControls()
+        {
+            slider.DataSource = null;
+            literal.Text = "";
+            literal.Visible = false;
+
+            IObjectSpace objectSpace = Application.CreateObjectSpace();
+            ViewItemHints hints = objectSpace.FindObject<ViewItemHints>(CriteriaOperator.Parse("ViewID = ? and IsPublished = ?", View.Id, true));
+            if (hints != null)
+            {
+                literal.Text += hints.Hint;
+
+                literal.Visible = true;
+            }
+
+            //IList ds;
+            //using (XPCollection collection = new XPCollection(Session.DefaultSession, typeof(News)))
+            //{
+            //    collection.TopReturnedObjects = 5;
+            //    ds = ListHelper.GetBindingList(collection);
+            //}
+
+
+            //ICollection products;
+            //DevExpress.Xpo.Metadata.XPClassInfo newsClass;
+            //DevExpress.Data.Filtering.CriteriaOperator criteria;
+            //DevExpress.Xpo.SortingCollection sortProps;
+            //DevExpress.Xpo.Session session;
+            //DevExpress.Xpo.Generators.CollectionCriteriaPatcher patcher;
+            //
+
+            //session = new Session();
+            //session.ConnectionString = XpoDefault.ConnectionString;
+            //newsClass = session.GetClassInfo(typeof(News));
+            //sortProps = new SortingCollection(null);
+            //sortProps.Add(new SortProperty("CreateDate", DevExpress.Xpo.DB.SortingDirection.Ascending));
+            //patcher = new DevExpress.Xpo.Generators.CollectionCriteriaPatcher(false, session.TypesManager);
+            //products = session.GetObjects(newsClass, null, sortProps, 0, patcher, true);
+            slider.Visible = false;
+            if (View.Id == "PersonalDashboard")
+            {
+                IObjectSpace newsObjectSpace = Application.CreateObjectSpace(typeof(ViewItemHints));
+                //IList<News> list = newsObjectSpace.GetObjects<News>();
+                DevExpress.Xpo.SortingCollection sortProps;
+                sortProps = new SortingCollection(null);
+                sortProps.Add(new SortProperty("CreateDate", DevExpress.Xpo.DB.SortingDirection.Descending));
+                XPBaseCollection list = (XPBaseCollection)newsObjectSpace.GetObjects<News>(CriteriaOperator.Parse("Published=? and RunningText=?", true, true));
+                list.Sorting = sortProps;
+                list.TopReturnedObjects = 5;
+
+                IList ds = ListHelper.GetBindingList(list);
+                slider.DataSource = ds;
+                slider.TextField = "Title";
+                slider.ImageContentBytesField = "Cover.MediaData";
+                slider.SettingsAutoGeneratedImages.EnableImageAutoGeneration = true;
+                slider.Width = new System.Web.UI.WebControls.Unit("100%");
+                slider.Height = new System.Web.UI.WebControls.Unit(320, System.Web.UI.WebControls.UnitType.Pixel);
+                slider.SettingsImageArea.NavigationButtonVisibility = DevExpress.Web.ElementVisibilityMode.Faded;
+                slider.SettingsImageArea.ItemTextVisibility = DevExpress.Web.ElementVisibilityMode.Always;
+                slider.SettingsNavigationBar.Mode = DevExpress.Web.NavigationBarMode.Thumbnails;
+                slider.SettingsNavigationBar.ThumbnailsNavigationButtonPosition = DevExpress.Web.ThumbnailNavigationBarButtonPosition.Inside;
+                slider.SettingsNavigationBar.Position = DevExpress.Web.NavigationBarPosition.Right;
+                slider.SettingsImageArea.ImageSizeMode = DevExpress.Web.ImageSizeMode.FillAndCrop;
+                slider.SettingsSlideShow.AutoPlay = true;
+                slider.NavigateUrlField = "URL";
+                slider.SettingsImageArea.AnimationType = DevExpress.Web.AnimationType.Auto;
+                
+                slider.SettingsAutoGeneratedImages.ImageCacheFolder = "~\\Images\\";
+                slider.Theme = "Metropolis";
+                slider.DataBind();
+                slider.Visible = true;
+            }
+
+            //literal.Text = "The current View is " + View.Caption;
+            //if (View.CurrentObject != null)
+            //{
+            //    literal.Text += "<br/>The current object is " + View.CurrentObject;
+            //}
+        }
+    }
 }
 

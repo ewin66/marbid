@@ -184,6 +184,15 @@ namespace Marbid.Web {
         protected global::DevExpress.ExpressApp.Web.Templates.ActionContainers.NavigationHistoryActionContainer NavigationHistoryActionContainer;
         
         /// <summary>
+        /// HINT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.ExpressApp.Web.Templates.XafUpdatePanel HINT;
+        
+        /// <summary>
         /// UPEI control.
         /// </summary>
         /// <remarks>
@@ -200,15 +209,6 @@ namespace Marbid.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.ExpressApp.Web.Templates.Controls.ErrorInfoControl ErrorInfo;
-        
-        /// <summary>
-        /// HINT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.ExpressApp.Web.Templates.XafUpdatePanel HINT;
         
         /// <summary>
         /// UPVSC control.

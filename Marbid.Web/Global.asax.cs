@@ -38,7 +38,7 @@ namespace Marbid.Web
          Tracing.Initialize();
          WebApplication.SetInstance(Session, new MarbidAspNetApplication());
 
-         //WebApplication.Instance.Settings.DefaultVerticalTemplateContentPath = "MareinDefaultVerticalTemplateContent.ascx";
+         WebApplication.Instance.Settings.DefaultVerticalTemplateContentPath = "MareinDefaultVerticalTemplateContent.ascx";
          WebApplication.Instance.Settings.LogonTemplateContentPath = "MarbidLogonTemplateContext.ascx";
          //DevExpress.ExpressApp.Web.Templates.DefaultVerticalTemplateContentNew.ClearSizeLimit();
          WebApplication.Instance.SwitchToNewStyle();

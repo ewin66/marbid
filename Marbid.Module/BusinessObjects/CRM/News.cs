@@ -35,8 +35,9 @@ namespace Marbid.Module.BusinessObjects.CRM
     [ImageName("News")]
     [DefaultProperty("Title")]
     [Appearance("NewsAppearance", Enabled = false, TargetItems = "CreateDate, Author")]
-    [Appearance("NewsEditor", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide, TargetItems = "Cover,Published", Criteria = "IsCurrentUserInRole('News Editor') = false")]
+    [Appearance("NewsEditor", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide, TargetItems = "Cover,Published,RunningText", Criteria = "IsCurrentUserInRole('News Editor') = false")]
     [Appearance("NewsEditorAction", AppearanceItemType = "Action", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide, TargetItems = "AddShortDescription,AddRelatedOrganization,RemoveRelatedOrganization,New,Delete,Edit,Modify", Criteria = "IsCurrentUserInRole('News Editor') = false")]
+    [Appearance("NewsEditorActionAlwaysHide", AppearanceItemType = "Action", Visibility = DevExpress.ExpressApp.Editors.ViewItemVisibility.Hide, TargetItems = "AddShortDescription")]
     public class News : BaseObject, INewsItem
     {
         public News(Session session)
@@ -126,7 +127,6 @@ namespace Marbid.Module.BusinessObjects.CRM
             }
         }
         [Size(SizeAttribute.Unlimited)]
-        [RuleRequiredField]
         public System.String ShortDescription
         {
             get
@@ -187,6 +187,7 @@ namespace Marbid.Module.BusinessObjects.CRM
                 SetPropertyValue("Published", ref _published, value);
             }
         }
+
         public System.Boolean RunningText
         {
             get
@@ -215,7 +216,7 @@ namespace Marbid.Module.BusinessObjects.CRM
             }
         }
 
-        [Persistent, VisibleInDetailView(false), VisibleInListView(false)]
+        [NonPersistent, VisibleInDetailView(false), VisibleInListView(false)]
         public string ImageURL
         {
             get
@@ -242,7 +243,7 @@ namespace Marbid.Module.BusinessObjects.CRM
 
             }
         }
-        [VisibleInDetailView(false), VisibleInListView(false)]
+        [NonPersistent,VisibleInDetailView(false), VisibleInListView(false)]
         public string URL
         {
             get

@@ -14,66 +14,79 @@ using DevExpress.Persistent.Validation;
 
 namespace Marbid.Module.BusinessObjects.Administration
 {
-  [DefaultClassOptions]
-  //[ImageName("BO_Contact")]
-  //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-  //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-  //[Persistent("DatabaseTableName")]
-  // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-  public class ViewItemHints : BaseObject
-  { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-    public ViewItemHints(Session session)
-        : base(session)
-    {
-    }
-    public override void AfterConstruction()
-    {
-      base.AfterConstruction();
-      // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
-    }
-    //private string _PersistentProperty;
-    //[XafDisplayName("My display name"), ToolTip("My hint message")]
-    //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
-    //[Persistent("DatabaseColumnName"), RuleRequiredField(DefaultContexts.Save)]
-    //public string PersistentProperty {
-    //    get { return _PersistentProperty; }
-    //    set { SetPropertyValue("PersistentProperty", ref _PersistentProperty, value); }
-    //}
+    [DefaultClassOptions]
+    //[ImageName("BO_Contact")]
+    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+    //[Persistent("DatabaseTableName")]
+    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
+    public class ViewItemHints : BaseObject
+    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+        public ViewItemHints(Session session)
+            : base(session)
+        {
+        }
+        public override void AfterConstruction()
+        {
+            base.AfterConstruction();
+            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
+        }
+        //private string _PersistentProperty;
+        //[XafDisplayName("My display name"), ToolTip("My hint message")]
+        //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
+        //[Persistent("DatabaseColumnName"), RuleRequiredField(DefaultContexts.Save)]
+        //public string PersistentProperty {
+        //    get { return _PersistentProperty; }
+        //    set { SetPropertyValue("PersistentProperty", ref _PersistentProperty, value); }
+        //}
 
-    //[Action(Caption = "My UI Action", ConfirmationMessage = "Are you sure?", ImageName = "Attention", AutoCommit = true)]
-    //public void ActionMethod() {
-    //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-    //    this.PersistentProperty = "Paid";
-    //}
-    string viewID;
-    [Size(SizeAttribute.Unlimited)]
-    [ModelDefault("RowCount", "1")]
-    [EditorAlias(DevExpress.ExpressApp.Editors.EditorAliases.StringPropertyEditor)]
-    [RuleUniqueValue]
-    public string ViewID
-    {
-      get
-      {
-        return viewID;
-      }
-      set
-      {
-        SetPropertyValue("ViewID", ref viewID, value);
-      }
+        //[Action(Caption = "My UI Action", ConfirmationMessage = "Are you sure?", ImageName = "Attention", AutoCommit = true)]
+        //public void ActionMethod() {
+        //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
+        //    this.PersistentProperty = "Paid";
+        //}
+        string viewID;
+        [Size(SizeAttribute.Unlimited)]
+        [ModelDefault("RowCount", "1")]
+        [EditorAlias(DevExpress.ExpressApp.Editors.EditorAliases.StringPropertyEditor)]
+        [RuleUniqueValue]
+        public string ViewID
+        {
+            get
+            {
+                return viewID;
+            }
+            set
+            {
+                SetPropertyValue("ViewID", ref viewID, value);
+            }
+        }
+        string hint;
+        [Size(SizeAttribute.Unlimited)]
+        [EditorAlias(DevExpress.ExpressApp.Editors.EditorAliases.HtmlPropertyEditor)]
+        public string Hint
+        {
+            get
+            {
+                return hint;
+            }
+            set
+            {
+                SetPropertyValue("Hint", ref hint, value);
+            }
+        }
+
+        bool isPublished;
+        public bool IsPublished
+        {
+            get
+            {
+                return isPublished;
+            }
+            set
+            {
+                SetPropertyValue("IsPublished", ref isPublished, value);
+            }
+        }
     }
-    string hint;
-    [Size(SizeAttribute.Unlimited)]
-    [EditorAlias(DevExpress.ExpressApp.Editors.EditorAliases.HtmlPropertyEditor)]
-    public string Hint
-    {
-      get
-      {
-        return hint;
-      }
-      set
-      {
-        SetPropertyValue("Hint", ref hint, value);
-      }
-    }
-  }
 }

@@ -148,6 +148,7 @@ namespace Marbid.Module.BusinessObjects.Administration
 
     [DevExpress.Xpo.SizeAttribute(5)]
     [VisibleInLookupListView(false)]
+    [ModelDefault("Caption", "Ext")]
     public System.String OfficeExtension
     {
       get

@@ -141,10 +141,11 @@ namespace Marbid.Module.Web.Editors
                 //control.TextField = "{Binding Path=(CRM:INewsItem.TextContent)}";
                 control.ItemSettings.ImagePosition = HeadlineImagePosition.Left;
                 control.ItemSettings.ShowImageAsLink = true;
+                control.ItemSettings.ShowHeaderAsLink = true;
                 control.EncodeHtml = true;
                 control.ItemSettings.MaxLength = 350;
                 control.ItemSettings.TailText = "Read More";
-                control.ItemSettings.TailPosition = TailPosition.KeepWithLastWord;
+                control.ItemSettings.TailPosition = TailPosition.Inline;
                 control.Theme = "Metropolis";
                 control.ItemSettings.DateVerticalPosition = DateVerticalPosition.Header;
                 control.RowPerPage = 10;
