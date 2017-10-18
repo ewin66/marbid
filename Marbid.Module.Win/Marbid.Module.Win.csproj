@@ -348,6 +348,9 @@
     <Compile Include="Controllers\GalleryUpdloadControllerWin.Designer.cs">
       <DependentUpon>GalleryUpdloadControllerWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ReportDesignerCustomizationController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Template\OutlookStyleMainRibbonFormMarbid.cs">
       <SubType>Form</SubType>
     </Compile>

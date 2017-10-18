@@ -109,7 +109,7 @@
     </Class>
     <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" DefaultDetailView="DashboardViewer_DetailView" />
   </BOModel>
-  <NavigationItems ShowImages="True">
+  <NavigationItems ShowImages="True" ShowNavigationOnStart="False" GenerateRelatedViewVariantsGroup="False">
     <Items>
       <Item Id="Default">
         <Items>
@@ -127,6 +127,7 @@
     <SchemaModule Name="SystemAspNetModule" Version="17.1.6.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="17.1.6.0" IsNewNode="True" />
     <SchemaModule Name="XpandSecurityModule" Version="17.1.6.3" IsNewNode="True" />
+    <SchemaModule Name="XpandSecurityWebModule" Version="17.1.6.3" IsNewNode="True" />
     <SchemaModule Name="XpandValidationModule" Version="17.1.6.3" IsNewNode="True" />
   </SchemaModules>
   <Views>

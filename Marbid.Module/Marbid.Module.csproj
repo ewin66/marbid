@@ -361,7 +361,9 @@
     <Compile Include="BusinessObjects\Library\StandardOperatingProcedure.cs" />
     <Compile Include="BusinessObjects\MiscObject\AccessLog.cs" />
     <Compile Include="BusinessObjects\MiscObject\MessageOfTheDay.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\BaseFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\BIDashboard.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\BIDashboardFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\PivotTool.cs" />
     <Compile Include="BusinessObjects\ReportCentral\Reporting.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportStatisticCategory.cs" />
@@ -758,6 +760,12 @@
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>
+    <EmbeddedResource Include="Images\BO_Favorite.png" />
+    <EmbeddedResource Include="Images\BO_Favorite_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Favorite_48x48.png" />
+    <EmbeddedResource Include="Images\BO_Not_Favorite.png" />
+    <EmbeddedResource Include="Images\BO_Not_Favorite_32x32.png" />
+    <EmbeddedResource Include="Images\BO_Not_Favorite_48x48.png" />
     <Content Include="Welcome.html" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
