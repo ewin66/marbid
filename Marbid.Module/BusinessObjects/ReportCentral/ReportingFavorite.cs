@@ -11,22 +11,19 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
-using Marbid.Module.BusinessObjects.Administration;
 
-namespace Marbid.Module.BusinessObjects.CRM
+namespace Marbid.Module.BusinessObjects.ReportCentral
 {
     [DefaultClassOptions]
     [NavigationItem(false)]
-    [ImageName("meeting")]
-    [CreatableItem(false)]
     //[ImageName("BO_Contact")]
-    [DefaultProperty("Participant")]
+    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class ScheduleParticipant : BaseObject
+    public class ReportingFavorite : BaseFavorite
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public ScheduleParticipant(Session session)
+        public ReportingFavorite(Session session)
             : base(session)
         {
         }
@@ -49,60 +46,18 @@ namespace Marbid.Module.BusinessObjects.CRM
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
-
-        // Fields...
-        // Fields...
-        private People _Participant;
-        private Schedule _Schedule;
-
-        [Association("Schedule-SceduleParticipants")]
-        public Schedule Schedule
+        Reporting report;
+        [Association("Reporting-ReportingFavorites")]
+        public Reporting Report
         {
             get
             {
-                return _Schedule;
+                return report;
             }
             set
             {
-                Schedule oldSchedule = _Schedule;
-                SetPropertyValue("Schedule", ref _Schedule, value);
-                if (!IsLoading && !IsSaving && oldSchedule != _Schedule)
-                {
-                    oldSchedule = oldSchedule ?? _Schedule;
-                    oldSchedule.UpdateParticipants(true);
-                }
+                SetPropertyValue("Report", ref report, value);
             }
-        }
-        public People Participant
-        {
-            get
-            {
-                return _Participant;
-            }
-            set
-            {
-                SetPropertyValue("Participant", ref _Participant, value);
-            }
-        }
-        AttendeeType attendanceType;
-        public AttendeeType AttendanceType
-        {
-            get
-            {
-                return attendanceType;
-            }
-
-            set
-            {
-                SetPropertyValue("AttendanceType", ref attendanceType, value);
-            }
-        }
-
-        public enum AttendeeType
-        {
-            Required,
-            Optional,
-            Resource
         }
     }
 }

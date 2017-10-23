@@ -12,6 +12,10 @@
       <ActionContainer Id="NewsOpenSource" IsNewNode="True">
         <ActionLink ActionId="News.OpenSource" Index="0" IsNewNode="True" />
       </ActionContainer>
+      <ActionContainer Id="ResourceCategories" IsNewNode="True">
+        <ActionLink ActionId="AddResourceCategory" Index="0" IsNewNode="True" />
+        <ActionLink ActionId="RemoveResourceCategory" Index="1" IsNewNode="True" />
+      </ActionContainer>
       <ActionContainer Id="ScheduleAddParticipant" IsNewNode="True">
         <ActionLink ActionId="AddInternalParticipants" Index="0" IsNewNode="True" />
         <ActionLink ActionId="AddParticipant" Index="1" IsNewNode="True" />
@@ -336,7 +340,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="BIDashboard_ListView" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True">
+    <ListView Id="BIDashboard_ListView" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" PreviewColumnName="Description">
       <Columns>
         <ColumnInfo Id="IsActive" Index="-1" />
         <ColumnInfo Id="ModifiedBy" Index="-1" />
@@ -675,23 +679,25 @@
     <DetailView Id="CorporateResource_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SizeableEditors" RelativeSize="66.624685138539036" Index="0" Caption="Content">
-            <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="6.0491493383742911" IsNewNode="True" />
-            <LayoutGroup Id="Auto3099599b-7728-4f83-aaca-15555cf51c5e" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="9.0737240075614363" IsNewNode="True">
-              <LayoutGroup Id="Auto7ef3d5e1-4e0a-4501-bb6b-ccbfb4be7525" ShowCaption="False" Caption="" Index="0" RelativeSize="50" IsNewNode="True">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="70.716112531969316" Index="0" Caption="Content">
+            <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="5.786618444846293" IsNewNode="True" />
+            <LayoutGroup Id="Auto3099599b-7728-4f83-aaca-15555cf51c5e" ShowCaption="False" Caption="Auto3099599b-7728-4f83-aaca-15555cf51c5e(4)" Direction="Horizontal" Index="1" RelativeSize="10.849909584086799" IsNewNode="True">
+              <LayoutGroup Id="Auto7ef3d5e1-4e0a-4501-bb6b-ccbfb4be7525" ShowCaption="False" Caption="Auto7ef3d5e1-4e0a-4501-bb6b-ccbfb4be7525(5)" Index="0" RelativeSize="50" IsNewNode="True">
                 <LayoutItem Id="CreatedBy" ViewItem="CreatedBy" Index="0" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="ModifiedBy" ViewItem="ModifiedBy" Index="1" RelativeSize="50" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Autoc715da23-c0b3-45ec-bf82-0bf0a4e9a37a" ShowCaption="False" Caption="" Index="1" RelativeSize="50" IsNewNode="True">
+              <LayoutGroup Id="Autoc715da23-c0b3-45ec-bf82-0bf0a4e9a37a" ShowCaption="False" Caption="Autoc715da23-c0b3-45ec-bf82-0bf0a4e9a37a(8)" Index="1" RelativeSize="50" IsNewNode="True">
                 <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="0" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="ModifyDate" ViewItem="ModifyDate" Index="1" RelativeSize="50" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutItem Id="Category" ViewItem="Category" Index="2" RelativeSize="4.5368620037807181" IsNewNode="True" />
-            <LayoutItem Id="LatestFile" ViewItem="LatestFile" Index="3" RelativeSize="4.5368620037807181" IsNewNode="True" />
-            <LayoutItem Id="Content" CaptionLocation="Top" RelativeSize="75.803402646502832" Index="4" MinSize="0, 400" SizeConstraintsType="Custom" />
+            <LayoutGroup Id="Autoa4154354-4056-4ad8-a833-068cbf9eb948" ShowCaption="False" Caption="Autoa4154354-4056-4ad8-a833-068cbf9eb948(11)" Direction="Vertical" Index="2" RelativeSize="5.9674502712477393" IsNewNode="True">
+              <LayoutItem Id="Category" ViewItem="Category" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="LatestFile" ViewItem="LatestFile" Index="3" RelativeSize="4.3399638336347195" IsNewNode="True" />
+            <LayoutItem Id="Content" CaptionLocation="Top" RelativeSize="73.056057866184446" Index="4" MinSize="1, 400" SizeConstraintsType="Custom" />
           </LayoutGroup>
-          <LayoutGroup Id="Attachments_Group" Direction="Vertical" RelativeSize="33.375314861460957" Index="1">
+          <LayoutGroup Id="Attachments_Group" Direction="Vertical" RelativeSize="29.283887468030692" Index="1">
             <LayoutItem Id="Attachments" RelativeSize="100" />
           </LayoutGroup>
           <LayoutGroup Id="SimpleEditors" RelativeSize="33.333333333333336" Direction="Horizontal" Removed="True">
@@ -1259,7 +1265,6 @@
         <ColumnInfo Id="AppointmentDate" Index="-1" Removed="True" />
         <ColumnInfo Id="ChangePasswordOnFirstLogon" Index="-1" Removed="True" />
         <ColumnInfo Id="DaysOffRemaining" Index="-1" Removed="True" />
-        <ColumnInfo Id="FullName" SortOrder="Descending" />
         <ColumnInfo Id="FunctionalPosition" Index="-1" Removed="True" />
         <ColumnInfo Id="IsActive" Index="-1" Removed="True" />
         <ColumnInfo Id="JoinDate" Index="-1" Removed="True" />
@@ -1270,6 +1275,7 @@
         <ColumnInfo Id="StructuralPosition" Index="-1" Removed="True" />
         <ColumnInfo Id="TerminationDate" Index="-1" Removed="True" />
         <ColumnInfo Id="UserName" Index="-1" Removed="True" />
+        <ColumnInfo Id="FullName" SortOrder="Descending" />
         <ColumnInfo Id="RankGroup" Index="1" />
         <ColumnInfo Id="Directorate" Index="2" />
         <ColumnInfo Id="Division" Index="3" />
@@ -1761,7 +1767,7 @@
         <ColumnInfo Id="EffectiveDate" Index="3" />
       </Columns>
     </ListView>
-    <ListView Id="Reporting_ListView" Filter="" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True">
+    <ListView Id="Reporting_ListView" Filter="" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" PreviewColumnName="Description">
       <Columns>
         <ColumnInfo Id="IsActive" Index="-1" />
         <ColumnInfo Id="ModifiedBy" Index="-1" />
@@ -1770,9 +1776,59 @@
         <ColumnInfo Id="CreateDate" Index="2" />
       </Columns>
     </ListView>
+    <DetailView Id="ResourceLibrary_DetailView">
+      <Items>
+        <ActionContainerViewItem Id="ResourceCategoriesAction" ActionContainer="ResourceCategories" PaintStyle="CaptionAndImage" Caption="ResourceCategoriesAction(22)" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="27.237851662404093">
+            <LayoutGroup Id="ResourceLibrary" RelativeSize="100" Direction="Vertical">
+              <LayoutGroup Id="ResourceLibrary_col1" RelativeSize="100">
+                <LayoutItem Id="Title" Index="0" RelativeSize="18.181818181818183" />
+                <LayoutItem Id="ResourceNumber" ViewItem="ResourceNumber" Index="1" RelativeSize="13.636363636363637" IsNewNode="True" Removed="True" />
+                <LayoutGroup Id="Autodae41fc1-2bbd-4525-9486-419f6336358e" ShowCaption="False" Caption="Autodae41fc1-2bbd-4525-9486-419f6336358e(7)" Direction="Horizontal" Index="2" RelativeSize="34.090909090909093" IsNewNode="True">
+                  <LayoutGroup Id="Autod072020e-66d4-46ed-923a-d67154c85d61" ShowCaption="False" Caption="Autod072020e-66d4-46ed-923a-d67154c85d61(8)" Index="0" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="CreateDate" ViewItem="CreateDate" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="CreatedBy" ViewItem="CreatedBy" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto23c41e70-b5df-4547-b2b6-c339814f1c9b" ShowCaption="False" Caption="Auto23c41e70-b5df-4547-b2b6-c339814f1c9b(11)" Index="1" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="ModifyDate" ViewItem="ModifyDate" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="ModifiedBy" ViewItem="ModifiedBy" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Auto74e9cfb0-6efa-4f01-bc36-5108afdec4ba" ShowCaption="False" Caption="" Direction="Horizontal" Index="3" RelativeSize="15.909090909090908" IsNewNode="True">
+                  <LayoutItem Id="Categories" ViewItem="Categories" Index="0" RelativeSize="77.728873239436624" IsNewNode="True" />
+                  <LayoutItem Id="ResourceCategoriesAction" ViewItem="ResourceCategoriesAction" Index="1" RelativeSize="22.27112676056338" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="CreateDate" RelativeSize="23.529411764705884" Index="3" Removed="True" />
+                <LayoutItem Id="CreatedBy" RelativeSize="17.647058823529413" Index="3" Removed="True" />
+                <LayoutItem Id="Attachment" ViewItem="Attachment" Index="4" RelativeSize="18.181818181818183" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ResourceLibrary_col2" RelativeSize="50" Caption="ResourceLibrary_col2" Direction="Horizontal" Removed="True">
+                <LayoutItem Id="Attachment" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Categories" RelativeSize="28.571428571428573" Index="0" Removed="True" />
+                <LayoutItem Id="ModifyDate" RelativeSize="23.529411764705884" Index="0" Removed="True" />
+                <LayoutItem Id="ModifiedBy" RelativeSize="28.571428571428573" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="72.7621483375959">
+            <LayoutItem Id="Description" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ResourceLibrary_ListView">
+      <Columns>
+        <ColumnInfo Id="ModifiedBy" Index="-1" />
+        <ColumnInfo Id="ModifyDate" Index="-1" />
+        <ColumnInfo Id="Categories" Index="4" />
+      </Columns>
+    </ListView>
     <DetailView Id="Schedule_DetailView">
       <Items>
-        <ActionContainerViewItem Id="ScheduleAddParticipant" ActionContainer="ScheduleAddParticipant" Caption="ScheduleAddParticipant(55)" IsNewNode="True" />
+        <ActionContainerViewItem Id="ScheduleAddParticipant" ActionContainer="ScheduleAddParticipant" Caption="ScheduleAddParticipant(55)" PaintStyle="CaptionAndImage" IsNewNode="True" />
         <PropertyEditor Id="ScheduleParticipants" PropertyName="ScheduleParticipants" View="Schedule_ScheduleParticipants_ListView" IsNewNode="True" />
       </Items>
       <Layout>

@@ -56,6 +56,7 @@ namespace Marbid.Web
         private Xpand.ExpressApp.Security.XpandSecurityModule xpandSecurityModule1;
         private Xpand.ExpressApp.Logic.LogicModule logicModule1;
         private Xpand.ExpressApp.Email.EmailModule emailModule1;
+        private Xpand.ExpressApp.Security.Web.XpandSecurityWebModule xpandSecurityWebModule1;
         private DevExpress.ExpressApp.Workflow.WorkflowModule workflowModule;
 
 
@@ -178,6 +179,7 @@ namespace Marbid.Web
             this.xpandSecurityModule1 = new Xpand.ExpressApp.Security.XpandSecurityModule();
             this.logicModule1 = new Xpand.ExpressApp.Logic.LogicModule();
             this.emailModule1 = new Xpand.ExpressApp.Email.EmailModule();
+            this.xpandSecurityWebModule1 = new Xpand.ExpressApp.Security.Web.XpandSecurityWebModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
@@ -185,6 +187,7 @@ namespace Marbid.Web
             this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
             this.securityStrategyComplex1.RoleType = typeof(Marbid.Module.BusinessObjects.Administration.MarbidRole);
             this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
+            this.securityStrategyComplex1.UsePermissionRequestProcessor = false;
             this.securityStrategyComplex1.UserType = typeof(Marbid.Module.BusinessObjects.Administration.Employee);
             // 
             // authenticationStandard1
@@ -284,6 +287,7 @@ namespace Marbid.Web
             this.Modules.Add(this.scriptRecorderAspNetModule);
             this.Modules.Add(this.treeListEditorsAspNetModule);
             this.Modules.Add(this.validationAspNetModule);
+            this.Modules.Add(this.xpandSecurityWebModule1);
             this.Modules.Add(this.module4);
             this.Security = this.securityStrategyComplex1;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.MarbidAspNetApplication_DatabaseVersionMismatch);

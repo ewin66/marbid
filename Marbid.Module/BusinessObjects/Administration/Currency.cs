@@ -1,16 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using DevExpress.Xpo;
-using DevExpress.ExpressApp;
-using System.ComponentModel;
-using DevExpress.ExpressApp.DC;
-using DevExpress.Data.Filtering;
-using DevExpress.Persistent.Base;
-using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
+﻿using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using DevExpress.Xpo;
 
 namespace Marbid.Module.BusinessObjects.Administration
 {
@@ -25,10 +16,12 @@ namespace Marbid.Module.BusinessObjects.Administration
         private System.String _sign;
         private System.String _name;
         private System.String _currencyCode;
+
         public Currency(DevExpress.Xpo.Session session)
           : base(session)
         {
         }
+
         [RuleUniqueValue]
         [RuleRequiredField]
         public System.String CurrencyCode
@@ -42,6 +35,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("CurrencyCode", ref _currencyCode, value);
             }
         }
+
         [RuleRequiredField]
         public System.String Name
         {
@@ -54,6 +48,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("Name", ref _name, value);
             }
         }
+
         public System.String Sign
         {
             get
@@ -65,6 +60,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("Sign", ref _sign, value);
             }
         }
+
         public Marbid.Module.BusinessObjects.Administration.Employee CreatedBy
         {
             get
@@ -76,6 +72,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("CreatedBy", ref _createdBy, value);
             }
         }
+
         public System.DateTime CreateDate
         {
             get
@@ -87,6 +84,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("CreateDate", ref _createDate, value);
             }
         }
+
         public Marbid.Module.BusinessObjects.Administration.Employee ModifiedBy
         {
             get
@@ -98,6 +96,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("ModifiedBy", ref _modifiedBy, value);
             }
         }
+
         public System.DateTime ModifyDate
         {
             get
@@ -109,6 +108,7 @@ namespace Marbid.Module.BusinessObjects.Administration
                 SetPropertyValue("ModifyDate", ref _modifyDate, value);
             }
         }
+
         [DevExpress.Xpo.AssociationAttribute("Rates-Currency")]
         public XPCollection<Marbid.Module.BusinessObjects.Administration.ExchangeRate> Rates
         {

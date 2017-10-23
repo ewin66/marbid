@@ -15,44 +15,55 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.Dashboards.Win;
 using DevExpress.DashboardWin;
+using DevExpress.DashboardCommon;
 
 namespace Marbid.Module.Win.Controllers
 {
-   // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
-   public partial class CustomizeDashboardControllerWin : ObjectViewController<DetailView, IDashboardData>
-   {
-      protected override void OnActivated()
-      {
-         base.OnActivated();
-         WinDashboardViewerViewItem dashboardViewerViewItem =
-             View.FindItem("DashboardViewer") as WinDashboardViewerViewItem;
-         if (dashboardViewerViewItem != null)
-         {
-            if (dashboardViewerViewItem.Viewer != null)
+    // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
+    public partial class CustomizeDashboardControllerWin : ObjectViewController<DetailView, IDashboardData>
+    {
+        protected override void OnActivated()
+        {
+            base.OnActivated();
+            WinDashboardViewerViewItem dashboardViewerViewItem =
+                View.FindItem("DashboardViewer") as WinDashboardViewerViewItem;
+            if (dashboardViewerViewItem != null)
             {
-               CustomizeDashboardViewer(dashboardViewerViewItem.Viewer);
+                if (dashboardViewerViewItem.Viewer != null)
+                {
+                    CustomizeDashboardViewer(dashboardViewerViewItem.Viewer);
+                }
+                dashboardViewerViewItem.ControlCreated += DashboardViewerViewItem_ControlCreated;
             }
-            dashboardViewerViewItem.ControlCreated += DashboardViewerViewItem_ControlCreated;
-         }
-      }
-      private void DashboardViewerViewItem_ControlCreated(object sender, EventArgs e)
-      {
-         WinDashboardViewerViewItem dashboardViewerViewItem = sender as WinDashboardViewerViewItem;
-         CustomizeDashboardViewer(dashboardViewerViewItem.Viewer);
-      }
-      private void CustomizeDashboardViewer(DashboardViewer dashboardViewer)
-      {
-         dashboardViewer.AllowPrintDashboardItems = true;
-      }
-      protected override void OnDeactivated()
-      {
-         WinDashboardViewerViewItem dashboardViewerViewItem =
-             View.FindItem("DashboardViewer") as WinDashboardViewerViewItem;
-         if (dashboardViewerViewItem != null)
-         {
-            dashboardViewerViewItem.ControlCreated -= DashboardViewerViewItem_ControlCreated;
-         }
-         base.OnDeactivated();
-      }
-   }
+        }
+        private void DashboardViewerViewItem_ControlCreated(object sender, EventArgs e)
+        {
+            WinDashboardViewerViewItem dashboardViewerViewItem = sender as WinDashboardViewerViewItem;
+            CustomizeDashboardViewer(dashboardViewerViewItem.Viewer);
+        }
+        private void CustomizeDashboardViewer(DashboardViewer dashboardViewer)
+        {
+            dashboardViewer.AllowPrintDashboardItems = true;
+            dashboardViewer.DashboardLoaded += DashboardViewer_DashboardLoaded;
+        }
+
+        private void DashboardViewer_DashboardLoaded(object sender, DashboardLoadedEventArgs e)
+        {
+            var dashboard = e.Dashboard;
+            dashboard.DataSources.OfType<DashboardSqlDataSource>().ToList().ForEach(dataSource => {
+                dataSource.ConnectionOptions.DbCommandTimeout = 10000;
+            });
+        }
+
+        protected override void OnDeactivated()
+        {
+            WinDashboardViewerViewItem dashboardViewerViewItem =
+                View.FindItem("DashboardViewer") as WinDashboardViewerViewItem;
+            if (dashboardViewerViewItem != null)
+            {
+                dashboardViewerViewItem.ControlCreated -= DashboardViewerViewItem_ControlCreated;
+            }
+            base.OnDeactivated();
+        }
+    }
 }

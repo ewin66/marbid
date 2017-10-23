@@ -14,12 +14,14 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.Web.SystemModule;
+using DevExpress.ExpressApp.Web.Editors.ASPx;
 
 namespace Marbid.Module.Web.Controllers
 {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
-    public partial class ListSizeViewController : ViewController
+    public partial class ListSizeViewController : ViewController<ListView>
     {
+        private ListViewController controller;
         public ListSizeViewController()
         {
             InitializeComponent();
@@ -35,6 +37,18 @@ namespace Marbid.Module.Web.Controllers
                 ((IModelListViewWeb)lv.Model).PageSize = 10;
             }
 
+            ASPxGridListEditor listEditor = View.Editor as ASPxGridListEditor;
+            if (listEditor != null)
+            {
+                listEditor.IsAdaptive = true;
+            }
+
+            controller = Frame.GetController<ListViewController>();
+            if (controller != null)
+            {
+                controller.EditAction.Active["ViewController1"] = false;
+            }
+
 
             //XafApplication app = this.Application;
             //((IModelListViewWeb)app.FindModelView("Contact_ListView")).PageSize = 50;
@@ -44,10 +58,14 @@ namespace Marbid.Module.Web.Controllers
             base.OnViewControlsCreated();
             // Access and customize the target View control.
         }
+
         protected override void OnDeactivated()
         {
-            // Unsubscribe from previously subscribed events and release other references and resources.
             base.OnDeactivated();
+            if (controller != null)
+            {
+                controller.EditAction.Active.RemoveItem("ViewController1");
+            }
         }
     }
 }

@@ -351,6 +351,9 @@
     <Compile Include="Controllers\ReportDesignerCustomizationController.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controllers\DashboardDesignerCustomizationController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Template\OutlookStyleMainRibbonFormMarbid.cs">
       <SubType>Form</SubType>
     </Compile>

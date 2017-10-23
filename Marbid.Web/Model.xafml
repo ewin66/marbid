@@ -109,7 +109,7 @@
     </Class>
     <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" DefaultDetailView="DashboardViewer_DetailView" />
   </BOModel>
-  <NavigationItems ShowImages="True" ShowNavigationOnStart="False" GenerateRelatedViewVariantsGroup="False">
+  <NavigationItems ShowImages="True" ShowNavigationOnStart="False" GenerateRelatedViewVariantsGroup="True">
     <Items>
       <Item Id="Default">
         <Items>
@@ -155,6 +155,43 @@
         <ColumnInfo Id="RefNumber" PropertyName="RefNumber" Index="4" Width="70" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="AuthenticationStandardLogonParameters_DetailView">
+      <Items>
+        <StaticImage Id="LogonImage" Caption="LogonImage(4)" />
+        <StaticText Id="LogonText" Caption="LogonText(7)" />
+        <ActionContainerViewItem Id="RestorePasswordActionItem" Caption="RestorePasswordActionItem(17)" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="RootGroup" Direction="Vertical">
+            <LayoutGroup Id="EditorsGroup" RelativeSize="100" Index="0">
+              <LayoutGroup Id="Text" RelativeSize="13.383838383838384">
+                <LayoutItem Id="LogonImage" ViewItem="LogonImage" Index="0" RelativeSize="81.132075471698116" IsNewNode="True" />
+                <LayoutItem Id="LogonText" Index="1" RelativeSize="18.867924528301888" />
+              </LayoutGroup>
+              <LayoutGroup Id="Editors" RelativeSize="86.616161616161619">
+                <LayoutGroup Id="4d5fc467-a437-4a79-b542-732e1cd37682" RelativeSize="100">
+                  <LayoutGroup Id="Item3" Direction="Vertical">
+                    <LayoutGroup Id="Item2" RelativeSize="100">
+                      <LayoutItem Id="UserName" RelativeSize="4.3731778425655978" />
+                      <LayoutItem Id="Password" RelativeSize="3.4985422740524781" />
+                      <LayoutItem Id="Item5" RelativeSize="92.128279883381921" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item1" RelativeSize="22.390317700453856" Direction="Horizontal" Removed="True">
+                      <LayoutItem Id="RestorePasswordActionItem" Index="0" RelativeSize="100" Removed="True" />
+                      <LayoutItem Id="RegisterUserActionItem" Removed="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="ImageGroup" RelativeSize="88.927943760984178" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="LogonImage" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="BIDashboard_ListView" DetailViewID="DashboardViewer_DetailView" />
     <DetailView Id="Document_DetailView">
       <Items>

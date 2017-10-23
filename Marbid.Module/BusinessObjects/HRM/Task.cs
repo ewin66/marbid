@@ -31,8 +31,6 @@ namespace Marbid.Module.BusinessObjects.HRM
     [ListViewFilter("MyAllUncompletedTasks", "([Owner.Oid] = CurrentUserId() or [AssignedTo.Oid] = CurrentUserId()) and [Status] <> 'Completed'", "All My Pending Tasks", "Show only my pending tasks", 1, false)]
     [ListViewFilter("AllTasksRelatedToMe", "[AssignedTo.Oid] = CurrentUserId() Or [Owner.Oid] = CurrentUserId() Or [AssignedTo.Manager.Oid] = CurrentUserId() Or [Owner.Manager.Oid] = CurrentUserId() Or [Owner.Department.Manager.Oid] = CurrentUserId() Or [Owner.Division.Manager.Oid] = CurrentUserId() Or [Owner.Directorate.Manager.Oid] = CurrentUserId() Or [AssignedTo.Department.Manager.Oid] = CurrentUserId() Or [AssignedTo.Division.Manager.Oid] = CurrentUserId() Or [AssignedTo.Directorate.Manager.Oid] = CurrentUserId()", "All Tasks Related To Me", "Show all tasks related to me, including my subordinates' tasks", 2, false)]
     [ListViewFilter("AllUncompletedTasksRelatedToMe", "([AssignedTo.Oid] = CurrentUserId() Or [Owner.Oid] = CurrentUserId() Or [AssignedTo.Manager.Oid] = CurrentUserId() Or [Owner.Manager.Oid] = CurrentUserId() Or [Owner.Department.Manager.Oid] = CurrentUserId() Or [Owner.Division.Manager.Oid] = CurrentUserId() Or [Owner.Directorate.Manager.Oid] = CurrentUserId() Or [AssignedTo.Department.Manager.Oid] = CurrentUserId() Or [AssignedTo.Division.Manager.Oid] = CurrentUserId() Or [AssignedTo.Directorate.Manager.Oid] = CurrentUserId()) And Status <> 'Completed'", "All Uncompleted Tasks Related To Me", "Show all uncompleted tasks related to me, including my subordinates' tasks", 3, true)]
-
-
     public class Task : BaseObject
     {
         private ProjectManagement _Project;

@@ -358,6 +358,8 @@
     <Compile Include="BusinessObjects\Library\OperatingStep.cs" />
     <Compile Include="BusinessObjects\Library\Regulation.cs" />
     <Compile Include="BusinessObjects\Library\RegulationReporting.cs" />
+    <Compile Include="BusinessObjects\Library\Resource.cs" />
+    <Compile Include="BusinessObjects\Library\ResourceCategory.cs" />
     <Compile Include="BusinessObjects\Library\StandardOperatingProcedure.cs" />
     <Compile Include="BusinessObjects\MiscObject\AccessLog.cs" />
     <Compile Include="BusinessObjects\MiscObject\MessageOfTheDay.cs" />
@@ -366,6 +368,7 @@
     <Compile Include="BusinessObjects\ReportCentral\BIDashboardFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\PivotTool.cs" />
     <Compile Include="BusinessObjects\ReportCentral\Reporting.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportingFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportStatisticCategory.cs" />
     <Compile Include="BusinessObjects\RiskManagement\RiskAction.cs" />
     <Compile Include="BusinessObjects\RiskManagement\RiskAppetite.cs" />
@@ -455,6 +458,12 @@
     <Compile Include="Controllers\ReportCentralController.Designer.cs">
       <DependentUpon>ReportCentralController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ResourceLibraryViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ResourceLibraryViewController.Designer.cs">
+      <DependentUpon>ResourceLibraryViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ScheduleAddParticipantViewController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -520,6 +529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\ReportCentralController.resx">
       <DependentUpon>ReportCentralController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ResourceLibraryViewController.resx">
+      <DependentUpon>ResourceLibraryViewController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\ScheduleAddParticipantViewController.resx">
       <DependentUpon>ScheduleAddParticipantViewController.cs</DependentUpon>
@@ -766,6 +778,13 @@
     <EmbeddedResource Include="Images\BO_Not_Favorite.png" />
     <EmbeddedResource Include="Images\BO_Not_Favorite_32x32.png" />
     <EmbeddedResource Include="Images\BO_Not_Favorite_48x48.png" />
+    <EmbeddedResource Include="Images\BO_AddCategory.png" />
+    <EmbeddedResource Include="Images\BO_AddCategory_32x32.png" />
+    <EmbeddedResource Include="Images\BO_AddCategory_48x48.png" />
+    <EmbeddedResource Include="Images\BO_RemoveCategory.png" />
+    <EmbeddedResource Include="Images\BO_RemoveCategory_32x32.png" />
+    <EmbeddedResource Include="Images\BO_RemoveCategory_48x48.png" />
+    <EmbeddedResource Include="Images\judge_48x48.png" />
     <Content Include="Welcome.html" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

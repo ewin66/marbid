@@ -18,19 +18,12 @@
         }
 
         body {
+            background-image: url("/Images/background.png");
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
             background-color: #999;
-        }
-
-        .Caption {
-            color: dimgray;
-        }
-
-        .StaticText {
-            color: dimgray;
         }
     </style>
 </head>
