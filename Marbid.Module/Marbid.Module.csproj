@@ -366,9 +366,16 @@
     <Compile Include="BusinessObjects\ReportCentral\BaseFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\BIDashboard.cs" />
     <Compile Include="BusinessObjects\ReportCentral\BIDashboardFavorite.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\Connection.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\DataExplorerFavorite.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ParameterType.cs" />
     <Compile Include="BusinessObjects\ReportCentral\PivotTool.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportCentral.cs" />
     <Compile Include="BusinessObjects\ReportCentral\Reporting.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportingFavorite.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportParameter.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportRequest.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportRequestUser.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportStatisticCategory.cs" />
     <Compile Include="BusinessObjects\RiskManagement\RiskAction.cs" />
     <Compile Include="BusinessObjects\RiskManagement\RiskAppetite.cs" />
@@ -489,6 +496,7 @@
       <DependentUpon>TaskViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomCodes\Calculator.cs" />
+    <Compile Include="CustomCodes\DataRetrieval.cs" />
     <Compile Include="CustomCodes\Mailer.cs" />
     <Compile Include="CustomCodes\PdfHandling.cs" />
     <Compile Include="CustomInterface\IPictureItem.cs" />

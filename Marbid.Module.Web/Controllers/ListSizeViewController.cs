@@ -21,7 +21,7 @@ namespace Marbid.Module.Web.Controllers
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class ListSizeViewController : ViewController<ListView>
     {
-        private ListViewController controller;
+        //private ListViewController controller;
         public ListSizeViewController()
         {
             InitializeComponent();
@@ -43,11 +43,11 @@ namespace Marbid.Module.Web.Controllers
                 listEditor.IsAdaptive = true;
             }
 
-            controller = Frame.GetController<ListViewController>();
-            if (controller != null)
-            {
-                controller.EditAction.Active["ViewController1"] = false;
-            }
+            //controller = Frame.GetController<ListViewController>();
+            //if (controller != null)
+            //{
+            //    controller.EditAction.Active["ViewController1"] = false;
+            //}
 
 
             //XafApplication app = this.Application;
@@ -62,10 +62,10 @@ namespace Marbid.Module.Web.Controllers
         protected override void OnDeactivated()
         {
             base.OnDeactivated();
-            if (controller != null)
-            {
-                controller.EditAction.Active.RemoveItem("ViewController1");
-            }
+            //if (controller != null)
+            //{
+            //    controller.EditAction.Active.RemoveItem("ViewController1");
+            //}
         }
     }
 }

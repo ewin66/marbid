@@ -332,6 +332,12 @@
     <Compile Include="Controllers\NavigationLogController.Designer.cs">
       <DependentUpon>NavigationLogController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ReportDesignerCustomizationControllerWeb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReportDesignerCustomizationControllerWeb.Designer.cs">
+      <DependentUpon>ReportDesignerCustomizationControllerWeb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\SchedulerInfoViewController.cs">
       <SubType>Component</SubType>
     </Compile>

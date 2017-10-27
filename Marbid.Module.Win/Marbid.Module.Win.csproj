@@ -275,6 +275,9 @@
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
     </Reference>
@@ -348,11 +351,26 @@
     <Compile Include="Controllers\GalleryUpdloadControllerWin.Designer.cs">
       <DependentUpon>GalleryUpdloadControllerWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ReportCentralViewControllerWin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReportCentralViewControllerWin.Designer.cs">
+      <DependentUpon>ReportCentralViewControllerWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ReportDesignerCustomizationController.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\DashboardDesignerCustomizationController.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCodesWin\GridFormWin.cs" />
+    <Compile Include="CustomCodesWin\ParameterFormWin.cs" />
+    <Compile Include="CustomCodesWin\PivotFormWin.cs" />
+    <Compile Include="CustomCodesWin\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomCodesWin\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Template\OutlookStyleMainRibbonFormMarbid.cs">
       <SubType>Form</SubType>
@@ -371,6 +389,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Controllers\GalleryUpdloadControllerWin.resx">
       <DependentUpon>GalleryUpdloadControllerWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ReportCentralViewControllerWin.resx">
+      <DependentUpon>ReportCentralViewControllerWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomCodesWin\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />

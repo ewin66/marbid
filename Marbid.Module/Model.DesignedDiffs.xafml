@@ -84,6 +84,7 @@
       </OwnMembers>
     </Class>
     <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" Caption="BI Dashboard" />
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.ReportCentral" Caption="Data Explorer" ImageName="" />
   </BOModel>
   <Email>
     <ActionExecutionContextGroup>
@@ -1776,6 +1777,48 @@
         <ColumnInfo Id="CreateDate" Index="2" />
       </Columns>
     </ListView>
+    <DetailView Id="ReportRequest_DetailView">
+      <Items>
+        <StaticText Id="@27f3f24b-0a96-4fad-9e77-2a7b42a54dad" Text="Please write an in depth explamation regarding the report you requested. As to why you need the report, at what period of time you issue the report, whether the report is distributed to outside party or internaly, and so on." Caption="Description Requirement" IsNewNode="True" />
+        <StaticText Id="@752a2fda-8ba6-4157-9ee6-97fd85a77270" Text="Please attach Excel or PDF file the format of the report that you request" Caption="@752a2fda-8ba6-4157-9ee6-97fd85a77270(16)" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="13.51010101010101">
+            <LayoutGroup Id="ReportRequest" RelativeSize="100" Direction="Vertical">
+              <LayoutGroup Id="ReportRequest_col1" RelativeSize="100" Caption="ReportRequest_col1">
+                <LayoutItem Id="Subject" RelativeSize="45.714285714285715" />
+                <LayoutGroup Id="Autod2d305c8-bd84-46e3-b72e-838286af7f0e" ShowCaption="False" Caption="Autod2d305c8-bd84-46e3-b72e-838286af7f0e(6)" Direction="Horizontal" Index="1" RelativeSize="54.285714285714285" IsNewNode="True">
+                  <LayoutItem Id="RequestBy" ViewItem="RequestBy" Index="0" RelativeSize="49.918699186991873" IsNewNode="True" />
+                  <LayoutItem Id="RequestDate" ViewItem="RequestDate" Index="1" RelativeSize="50.081300813008127" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="RequestBy" RelativeSize="36.363636363636367" Removed="True" />
+                <LayoutItem Id="RequestDate" RelativeSize="27.272727272727273" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="ReportRequest_col2" RelativeSize="49.918166939443537" Caption="ReportRequest_col2" Direction="Horizontal" Removed="True">
+                <LayoutItem Id="UserAccess" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="ReportFormat" RelativeSize="36.363636363636367" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="44.065656565656568" Caption="Description">
+            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Description" IsNewNode="True">
+              <LayoutItem Id="Description" ViewItem="Description" CaptionLocation="Top" Index="0" RelativeSize="83.757961783439484" ShowCaption="False" IsNewNode="True" />
+              <LayoutItem Id="@27f3f24b-0a96-4fad-9e77-2a7b42a54dad" ShowCaption="True" ViewItem="@27f3f24b-0a96-4fad-9e77-2a7b42a54dad" Index="1" RelativeSize="16.242038216560509" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="Description" CaptionLocation="Top" RelativeSize="83.986928104575156" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Item1" ShowCaption="True" Caption="Attachment" CaptionLocation="Top" Index="2" RelativeSize="10.479797979797979" IsNewNode="True">
+            <LayoutItem Id="ReportFormat" ViewItem="ReportFormat" Index="0" RelativeSize="56.140350877192979" IsNewNode="True" />
+            <LayoutItem Id="@752a2fda-8ba6-4157-9ee6-97fd85a77270" ViewItem="@752a2fda-8ba6-4157-9ee6-97fd85a77270" Index="1" RelativeSize="43.859649122807021" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="ReportRequestUsers_Group" Direction="Vertical" RelativeSize="31.944444444444443" Index="3">
+            <LayoutItem Id="ReportRequestUsers" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ReportRequest_ReportRequestUsers_ListView" DetailViewID="" />
     <DetailView Id="ResourceLibrary_DetailView">
       <Items>
         <ActionContainerViewItem Id="ResourceCategoriesAction" ActionContainer="ResourceCategories" PaintStyle="CaptionAndImage" Caption="ResourceCategoriesAction(22)" IsNewNode="True" />

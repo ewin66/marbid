@@ -231,4 +231,13 @@ namespace Marbid.Module.BusinessObjects
    {
       NotRated= 0
    }
+
+    public enum ParameterPropertyType
+    {
+        String = 0,
+        Integer = 1,
+        Numeric = 2,
+        DateTime = 3,
+        DataSource = 4
+    }
 }
