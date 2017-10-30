@@ -371,6 +371,7 @@
     <Compile Include="BusinessObjects\ReportCentral\ParameterType.cs" />
     <Compile Include="BusinessObjects\ReportCentral\PivotTool.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportCentral.cs" />
+    <Compile Include="BusinessObjects\ReportCentral\ReportCentralLayoutData.cs" />
     <Compile Include="BusinessObjects\ReportCentral\Reporting.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportingFavorite.cs" />
     <Compile Include="BusinessObjects\ReportCentral\ReportParameter.cs" />

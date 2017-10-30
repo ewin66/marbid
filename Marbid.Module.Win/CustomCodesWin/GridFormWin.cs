@@ -36,12 +36,15 @@ namespace Marbid.Module.Win.CustomCodesWin
         private List<ParameterDefinition> parameterDefinition = new List<CustomCodesWin.ParameterDefinition>();
 
         public event SaveLayout Save;
+        public event SaveLayout SaveDefaultLayout;
 
         public EventArgs e = null;
 
         public delegate void SaveLayout(GridForm m, SaveLayoutEventArgs e);
 
         public string ReportName { get; set; }
+        public bool IsOwner { get; set; }
+        public string DefaultLayoutData { get; set; }
 
         public string LayoutData
         {
@@ -104,6 +107,7 @@ namespace Marbid.Module.Win.CustomCodesWin
             opt.StoreFormatRules = true;
             opt.StoreVisualOptions = true;
             opt.StoreDataSettings = true;
+            IsOwner = false;
         }
 
         public void ShowGridForm()
@@ -165,33 +169,63 @@ namespace Marbid.Module.Win.CustomCodesWin
                 return;
             }
 
+
+            DXMenuItem menuItem = new DXMenuItem("Column Properties");
+            DXMenuItem gridViewPropertyMenuItem = new DXMenuItem("Grid View Property");
+            DXMenuItem gridViewSaveLayoutMenuItem = new DXMenuItem("Save Layout");
+            DXMenuItem gridViewSaveToXlsxItem = new DXMenuItem("Save to Xlsx (WYSIWYG)");
+            DXMenuItem gridViewSaveToXlsxDataAwareItem = new DXMenuItem("Save to Xlsx (Data-Aware)");
+            DXMenuItem saveDefaultLayoutMenuItem = new DXMenuItem("Save as Default Layout");
+            DXSubMenuItem subMenuItem = new DXSubMenuItem("Layout");
+            DXSubMenuItem exportSubMenu = new DXSubMenuItem("Export && Print");
+
             if (e.MenuType == GridMenuType.Column)
             {
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
                 if (menu.Column != null)
                 {
-                    DXMenuItem menuItem = new DXMenuItem()
-                    {
-                        Caption = "Column Properties"
-                    };
-                    menu.Items.Add(menuItem);
+
                     column = e.HitInfo.Column;
                     menuItem.Click += GridForm_GridViewColumnMenu_click;
+                    subMenuItem.Items.Add(menuItem);
                 }
             }
 
-            DXMenuItem gridViewPropertyMenuItem = new DXMenuItem("Grid View Property");
-            DXMenuItem gridViewSaveLayoutMenuItem = new DXMenuItem("Save Layout");
-            DXMenuItem gridViewSaveToXlsxItem = new DXMenuItem("Save to Xlsx (WYSIWYG)");
-            DXMenuItem gridViewSaveToXlsxDataAwareItem = new DXMenuItem("Save to Xlsx (Data-Aware)");
-            gridViewMenu.Items.Add(gridViewPropertyMenuItem);
-            gridViewMenu.Items.Add(gridViewSaveLayoutMenuItem);
-            gridViewMenu.Items.Add(gridViewSaveToXlsxItem);
-            gridViewMenu.Items.Add(gridViewSaveToXlsxDataAwareItem);
+            subMenuItem.Items.Add(gridViewPropertyMenuItem);
+            subMenuItem.Items.Add(gridViewSaveLayoutMenuItem);
+            exportSubMenu.Items.Add(gridViewSaveToXlsxItem);
+            exportSubMenu.Items.Add(gridViewSaveToXlsxDataAwareItem);
+            subMenuItem.Items.Add(saveDefaultLayoutMenuItem);
+            gridViewMenu.Items.Add(exportSubMenu);
+            gridViewMenu.Items.Add(subMenuItem);
             gridViewPropertyMenuItem.Click += GridForm_GridViewPropertyMenuItem_Click;
             gridViewSaveLayoutMenuItem.Click += GridForm_GridViewSaveLayoutMenuItem_Click;
             gridViewSaveToXlsxItem.Click += GridForm_GridViewSaveToXlsxItem_Click;
             gridViewSaveToXlsxDataAwareItem.Click += GridForm_GridViewSaveToXlsxDataAwareItem_Click;
+            saveDefaultLayoutMenuItem.Click += SaveDefaultLayoutMenuItem_Click;
+            if (!IsOwner)
+            {
+                gridViewPropertyMenuItem.Visible = false;
+                menuItem.Visible = false;
+                saveDefaultLayoutMenuItem.Visible = false;
+            }
+        }
+
+        private void SaveDefaultLayoutMenuItem_Click(object sender, EventArgs e)
+        {
+            Stream str = new MemoryStream();
+
+            gridControl.MainView.SaveLayoutToStream(str, opt);
+            str.Position = 0;
+            var sr = new StreamReader(str);
+            var myStr = sr.ReadToEnd();
+            layoutData = myStr;
+
+            SaveLayoutEventArgs args = new SaveLayoutEventArgs()
+            {
+                LayoutXML = myStr
+            };
+            SaveDefaultLayout(this, args);
         }
 
         private void GridForm_GridViewSaveToXlsxDataAwareItem_Click(object sender, EventArgs e)

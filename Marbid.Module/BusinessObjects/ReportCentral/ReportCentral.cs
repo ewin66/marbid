@@ -229,6 +229,16 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
             }
         }
 
+        [Association("ReportCentral-ReportCentralLayoutData"), DevExpress.Xpo.Aggregated]
+        [VisibleInDetailView(false)]
+        public XPCollection<ReportCentralLayoutData> ReportCentralLayoutData
+        {
+            get
+            {
+                return GetCollection<ReportCentralLayoutData>("ReportCentralLayoutData");
+            }
+        }
+
         [Action(ImageName = "BO_Not_Favorite", AutoCommit = true, Caption = "Remove From Favorite", SelectionDependencyType = MethodActionSelectionDependencyType.RequireSingleObject, TargetObjectsCriteria = "[DataExplorerFavorites][[Employee.Oid] = CurrentUserId()]")]
         public void RemoveFromFavorite()
         {
@@ -256,5 +266,6 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
             DataExplorerFavorites.Add(favorite);
             Session.Save(this);
         }
+
     }
 }

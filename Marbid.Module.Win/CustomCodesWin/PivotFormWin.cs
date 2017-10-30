@@ -26,6 +26,7 @@ namespace Marbid.Module.Win.CustomCodesWin
         GridControl drillGrid;
         DevExpress.XtraGrid.Views.Grid.GridView drillView;
         public event SaveLayout Save;
+        public event SaveLayout SaveDefaultLayout;
         //public EventArgs e = null;
         public delegate void SaveLayout(PivotFormWin m, SaveLayoutEventArgs e);
         public PivotFormWin()
@@ -41,12 +42,16 @@ namespace Marbid.Module.Win.CustomCodesWin
             opt.StoreFormatRules = true;
             opt.StoreVisualOptions = true;
             opt.StoreDataSettings = true;
+            IsOwnwer = false;
+            ParameterDefinition = new List<ParameterDefinition>();
         }
         public string ReportName { get; set; }
         public List<ParameterDefinition> ParameterDefinition { get; set; }
         public string QueryString { get; set; }
         public string ConnectionString { get; set; }
         public string LayoutData { get; set; }
+        public string DefaultLayoutData { get; set; }
+        public bool IsOwnwer { get; set; }
 
         public void ShowPivotForm()
         {
@@ -67,40 +72,35 @@ namespace Marbid.Module.Win.CustomCodesWin
 
                 paramDictionary = parameterForm.ParameterDictionary;
                 retrieval.Parameters = paramDictionary;
-                retrieval.ConnectionString = ConnectionString;
-                retrieval.QueryString = QueryString;
-                DataSet dataSet = new DataSet();
-                SplashScreenManager.ShowForm(typeof(WaitForm1));
-                try
-                {
-                    dataSet = retrieval.GetDataSet("ReportData", dataSet);
-                }
-                finally
-                {
-                    //Close Wait Form
-                    SplashScreenManager.CloseForm(false);
-                }
-                
-                pivotGrid.OptionsMenu.EnableFieldValueMenu = true;
-                pivotGrid.OptionsMenu.EnableFormatRulesMenu = true;
-                pivotGrid.OptionsMenu.EnableHeaderAreaMenu = true;
-                pivotGrid.OptionsMenu.EnableHeaderMenu = true;
-                pivotGrid.DataSource = dataSet.Tables["ReportData"];
-                pivotGrid.RetrieveFields();
-                pivotGrid.PopupMenuShowing += PivotGrid_PopupMenuShowing;
-                pivotGrid.CellDoubleClick += PivotGrid_CellDoubleClick;
-
-                if (!String.IsNullOrWhiteSpace(LayoutData))
-                {
-                    MemoryStream stream = new MemoryStream();
-                    StreamWriter writer = new StreamWriter(stream);
-                    writer.Write(LayoutData);
-                    writer.Flush();
-                    stream.Position = 0;
-                    pivotGrid.RestoreLayoutFromStream(stream, opt);
-                }
-                pivotForm.Show();
             }
+            retrieval.ConnectionString = ConnectionString;
+            retrieval.QueryString = QueryString;
+            DataSet dataSet = new DataSet();
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+            try
+            {
+                dataSet = retrieval.GetDataSet("ReportData", dataSet);
+            }
+            finally
+            {
+                //Close Wait Form
+                SplashScreenManager.CloseForm(false);
+            }
+            pivotGrid.DataSource = dataSet.Tables["ReportData"];
+            pivotGrid.RetrieveFields();
+            pivotGrid.PopupMenuShowing += PivotGrid_PopupMenuShowing;
+            pivotGrid.CellDoubleClick += PivotGrid_CellDoubleClick;
+
+            if (!String.IsNullOrWhiteSpace(LayoutData))
+            {
+                MemoryStream stream = new MemoryStream();
+                StreamWriter writer = new StreamWriter(stream);
+                writer.Write(LayoutData);
+                writer.Flush();
+                stream.Position = 0;
+                pivotGrid.RestoreLayoutFromStream(stream, opt);
+            }
+            pivotForm.Show();
         }
 
         private void PivotGrid_CellDoubleClick(object sender, PivotCellEventArgs e)
@@ -127,8 +127,6 @@ namespace Marbid.Module.Win.CustomCodesWin
             // Display the form.
             form.ShowDialog();
             form.Dispose();
-            
-
         }
 
         private void DrillGrid_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
@@ -181,23 +179,57 @@ namespace Marbid.Module.Win.CustomCodesWin
 
         private void PivotGrid_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            if (e.MenuType == PivotGridMenuType.Header)
-            {
-                field = e.Field;
-                DXMenuItem fieldPropertyMenuItem = new DXMenuItem("Field Property");
-                fieldPropertyMenuItem.Click += FieldPropertyMenuItem_Click;
-                e.Menu.Items.Add(fieldPropertyMenuItem);
-            }
 
+            DXMenuItem fieldPropertyMenuItem = new DXMenuItem("Field Property");
             DXMenuItem pivotSaveLayoutMenuItem = new DXMenuItem("Save Layout");
             DXMenuItem pivotSaveToXlsxMenuItem = new DXMenuItem("Save to Xlsx");
             DXMenuItem pivotLayoutProperty = new DXMenuItem("Pivot Property");
-            e.Menu.Items.Add(pivotSaveLayoutMenuItem);
-            e.Menu.Items.Add(pivotSaveToXlsxMenuItem);
-            e.Menu.Items.Add(pivotLayoutProperty);
+            DXMenuItem saveDefaultLayoutMenuItem = new DXMenuItem("Save as Default Layout");
+            DXSubMenuItem subMenuItem = new DXSubMenuItem("Layout");
+            DXSubMenuItem exportSubMenu = new DXSubMenuItem("Export && Print");
+            e.Menu.Items.Add(subMenuItem);
+            e.Menu.Items.Add(exportSubMenu);
+            subMenuItem.Items.Add(pivotSaveLayoutMenuItem);
+            exportSubMenu.Items.Add(pivotSaveToXlsxMenuItem);
+            subMenuItem.Items.Add(pivotLayoutProperty);
+            if (e.MenuType == PivotGridMenuType.Header)
+            {
+                field = e.Field;
+
+                fieldPropertyMenuItem.Click += FieldPropertyMenuItem_Click;
+                e.Menu.Items.Add(fieldPropertyMenuItem);
+                subMenuItem.Items.Add(fieldPropertyMenuItem);
+            }
+            //e.Menu.Items.Add(pivotSaveLayoutMenuItem);
+            //e.Menu.Items.Add(pivotSaveToXlsxMenuItem);
+            //e.Menu.Items.Add(pivotLayoutProperty);
             pivotSaveLayoutMenuItem.Click += PivotSaveLayoutMenuItem_Click;
             pivotSaveToXlsxMenuItem.Click += PivotSaveToXlsxMenuItem_Click;
             pivotLayoutProperty.Click += PivotLayoutProperty_Click;
+            saveDefaultLayoutMenuItem.Click += SaveDefaultLayoutMenuItem_Click;
+
+            if (!IsOwnwer)
+            {
+                pivotLayoutProperty.Visible = false;
+                fieldPropertyMenuItem.Visible = false;
+                saveDefaultLayoutMenuItem.Visible = false;
+            }
+        }
+
+        private void SaveDefaultLayoutMenuItem_Click(object sender, EventArgs e)
+        {
+            Stream str = new MemoryStream();
+            pivotGrid.SaveLayoutToStream(str, opt);
+            str.Position = 0;
+            var sr = new StreamReader(str);
+            var myStr = sr.ReadToEnd();
+            LayoutData = myStr;
+
+            SaveLayoutEventArgs args = new SaveLayoutEventArgs()
+            {
+                LayoutXML = myStr
+            };
+            SaveDefaultLayout(this, args);
         }
 
         private void PivotLayoutProperty_Click(object sender, EventArgs e)

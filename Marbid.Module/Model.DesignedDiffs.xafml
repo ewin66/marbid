@@ -83,8 +83,9 @@
         <Member Name="StartDate" DisplayFormat="{0:dd MMM yy}" />
       </OwnMembers>
     </Class>
-    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" Caption="BI Dashboard" />
-    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.ReportCentral" Caption="Data Explorer" ImageName="" />
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.BIDashboard" Caption="BI Dashboard" DefaultCriteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" />
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.ReportCentral" Caption="Data Explorer" ImageName="BO_Appearance" DefaultCriteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" />
+    <Class Name="Marbid.Module.BusinessObjects.ReportCentral.Reporting" DefaultCriteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" />
   </BOModel>
   <Email>
     <ActionExecutionContextGroup>
@@ -521,14 +522,14 @@
     </DetailView>
     <ListView Id="Company_FinancialInfo_ListView">
       <Columns>
-        <ColumnInfo Id="AccountingYear" OwnerBand="Period" />
         <ColumnInfo Id="GrossPremiumIncome" Index="0" OwnerBand="Underwriting" />
         <ColumnInfo Id="ProfitLoss" Index="0" OwnerBand="Others" />
         <ColumnInfo Id="ReinsurancePremium" Index="0" OwnerBand="Reinsurance" />
-        <ColumnInfo Id="AccountingQuarter" OwnerBand="Period" />
+        <ColumnInfo Id="AccountingYear" OwnerBand="Period" />
         <ColumnInfo Id="PremiumReserve" Index="1" OwnerBand="Underwriting" />
         <ColumnInfo Id="ReinsuranceCommission" Index="1" OwnerBand="Reinsurance" />
         <ColumnInfo Id="TotalAsset" Index="1" OwnerBand="Others" />
+        <ColumnInfo Id="AccountingQuarter" OwnerBand="Period" />
         <ColumnInfo Id="ClaimRecovery" Index="2" OwnerBand="Reinsurance" />
         <ColumnInfo Id="Commission" Index="2" OwnerBand="Underwriting" />
         <ColumnInfo Id="SolvabilityRatio" Index="2" OwnerBand="Others" />
@@ -1091,6 +1092,7 @@
     <ListView Id="Employee_LookupListView">
       <Columns>
         <ColumnInfo Id="StructuralPosition" Index="-1" Removed="True" />
+        <ColumnInfo Id="FullName" PropertyName="FullName" Index="0" Width="128" IsNewNode="True" />
         <ColumnInfo Id="Directorate" Index="1" />
         <ColumnInfo Id="Division" PropertyName="Division" Index="2" IsNewNode="True" />
         <ColumnInfo Id="Department" Index="3" />
@@ -1768,6 +1770,7 @@
         <ColumnInfo Id="EffectiveDate" Index="3" />
       </Columns>
     </ListView>
+    <ListView Id="ReportCentral_ListView" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" />
     <ListView Id="Reporting_ListView" Filter="" Criteria="[CreatedBy.Oid] = CurrentUserId() Or [AllowedRoles][[Employees][[Oid] = CurrentUserId()]] And [IsActive] = True" PreviewColumnName="Description">
       <Columns>
         <ColumnInfo Id="IsActive" Index="-1" />
