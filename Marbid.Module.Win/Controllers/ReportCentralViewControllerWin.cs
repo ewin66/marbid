@@ -22,6 +22,9 @@ using Marbid.Module.Win.CustomCodesWin;
 using System.Collections.Generic;
 using DevExpress.Xpo;
 using Marbid.Module.BusinessObjects.Administration;
+using DevExpress.Persistent.BaseImpl;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Marbid.Module.Win.Controllers
 {
@@ -103,10 +106,29 @@ namespace Marbid.Module.Win.Controllers
             pivotForm.ShowPivotForm();
         }
 
+        public byte[] ConvertBitMapToByteArray(Bitmap bitmap)
+        {
+            var imageStream = new MemoryStream();
+            using (imageStream)
+            {
+                // Save bitmap in some format.
+                bitmap.Save(imageStream, ImageFormat.Jpeg);
+                imageStream.Position = 0;
+
+                // Do something with the memory stream. For example:
+                byte[] imageBytes = imageStream.ToArray();
+                // Save bytes to the database.
+                return imageBytes;
+            }
+        }
+
         private void PivotForm_SaveDefaultLayout(PivotFormWin m, SaveLayoutEventArgs e)
         {
             ReportCentral rc = (ReportCentral)View.CurrentObject;
             rc.PivotViewXML = e.LayoutXML;
+            MediaDataObject mediaDataObject = ObjectSpace.CreateObject<MediaDataObject>();
+            mediaDataObject.MediaData = ConvertBitMapToByteArray(e.ImageData);
+            rc.PivotLayout = mediaDataObject;
             rc.Save();
             ObjectSpace.CommitChanges();
         }

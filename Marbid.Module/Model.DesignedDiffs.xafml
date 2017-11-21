@@ -183,7 +183,11 @@
           <Item Id="ToDoList_ListView" Removed="True" />
         </Items>
       </Item>
-      <Item Id="Library" ImageName="dictionary" />
+      <Item Id="Library" ImageName="dictionary">
+        <Items>
+          <Item Id="ResourceLibrary_ListView" Index="0" />
+        </Items>
+      </Item>
       <Item Id="Reports and Statistics" ImageName="BO_PivotChart" />
     </Items>
   </NavigationItems>
@@ -522,14 +526,14 @@
     </DetailView>
     <ListView Id="Company_FinancialInfo_ListView">
       <Columns>
+        <ColumnInfo Id="AccountingYear" OwnerBand="Period" />
         <ColumnInfo Id="GrossPremiumIncome" Index="0" OwnerBand="Underwriting" />
         <ColumnInfo Id="ProfitLoss" Index="0" OwnerBand="Others" />
         <ColumnInfo Id="ReinsurancePremium" Index="0" OwnerBand="Reinsurance" />
-        <ColumnInfo Id="AccountingYear" OwnerBand="Period" />
+        <ColumnInfo Id="AccountingQuarter" OwnerBand="Period" />
         <ColumnInfo Id="PremiumReserve" Index="1" OwnerBand="Underwriting" />
         <ColumnInfo Id="ReinsuranceCommission" Index="1" OwnerBand="Reinsurance" />
         <ColumnInfo Id="TotalAsset" Index="1" OwnerBand="Others" />
-        <ColumnInfo Id="AccountingQuarter" OwnerBand="Period" />
         <ColumnInfo Id="ClaimRecovery" Index="2" OwnerBand="Reinsurance" />
         <ColumnInfo Id="Commission" Index="2" OwnerBand="Underwriting" />
         <ColumnInfo Id="SolvabilityRatio" Index="2" OwnerBand="Others" />
@@ -1865,7 +1869,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="ResourceLibrary_ListView">
+    <ListView Id="ResourceLibrary_ListView" PreviewColumnName="Description">
       <Columns>
         <ColumnInfo Id="ModifiedBy" Index="-1" />
         <ColumnInfo Id="ModifyDate" Index="-1" />

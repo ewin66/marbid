@@ -42,9 +42,11 @@ namespace Marbid.Module.Win.CustomCodesWin
         {
             DataRetrieval retrieval = new DataRetrieval();
             XtraForm form = new XtraForm();
+            form.Icon = Marbid.Module.Win.Properties.Resources.mareinico;
+            form.Text = "Parameters";
             LayoutControl layout = new LayoutControl()
             {
-                Name = "layout"
+                Name = "layout",
             };
             layout.Root.BeginUpdate();
             foreach (ParameterDefinition definition in parameterDefinition)
@@ -62,7 +64,7 @@ namespace Marbid.Module.Win.CustomCodesWin
                         lookUpEdit.Properties.DataSource = paramDataSet.Tables[0];
                         lookUpEdit.Properties.ValueMember = paramDataSet.Tables[0].Columns[0].ColumnName;
                         lookUpEdit.Properties.DisplayMember = paramDataSet.Tables[0].Columns[1].ColumnName;
-
+                        lookUpEdit.EditValue = definition.ParameterDefaultValue;
                         itemLayout = layout.AddItem(definition.ParameterCaption, lookUpEdit);
                         itemLayout.OptionsTableLayoutItem.RowIndex = definition.ParameterIndex;
                         itemLayout.Name = definition.ParameterName;
@@ -73,7 +75,8 @@ namespace Marbid.Module.Win.CustomCodesWin
                         DateEdit dateEdit = new DateEdit()
                         {
                             DateTime = DateTime.Now,
-                            Name = definition.ParameterName
+                            Name = definition.ParameterName,
+                            EditValue = definition.ParameterDefaultValue
                         };
                         itemLayout = layout.AddItem(definition.ParameterCaption, dateEdit);
                         itemLayout.Name = definition.ParameterName;

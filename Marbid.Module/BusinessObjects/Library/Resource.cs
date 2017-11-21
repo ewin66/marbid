@@ -53,12 +53,15 @@ namespace Marbid.Module.BusinessObjects.Library
             IsDocumentAttached = (Attachment != null);
             if (IsDocumentAttached)
             {
-                using (MemoryStream ms = new MemoryStream())
+                if (Attachment.FileName.Contains("pdf"))
                 {
-                    Attachment.SaveToStream(ms);
-                    using (PdfHandling pdfHandling = new PdfHandling(ms))
+                    using (MemoryStream ms = new MemoryStream())
                     {
-                        AttachmentMetaData = pdfHandling.DocumentText;
+                        Attachment.SaveToStream(ms);
+                        using (PdfHandling pdfHandling = new PdfHandling(ms))
+                        {
+                            AttachmentMetaData = pdfHandling.DocumentText;
+                        }
                     }
                 }
                 Attachment.FileName = ResourceNumber + "." + Attachment.FileName.Split('.').Last();

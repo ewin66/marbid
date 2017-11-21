@@ -323,7 +323,15 @@ namespace Marbid.Module.BusinessObjects.CRM
             return GetCollection<BusinessTransactionSummary>("BusinessTransactionSummary");
          }
       }
-      [DevExpress.Persistent.Base.ToolTipAttribute("First known recorded transaction (might not be accurate)")]
+        [Association("Company-BankAccounts")]
+        public XPCollection<BankAccount> BankAccounts
+        {
+            get
+            {
+                return GetCollection<BankAccount>("BankAccounts");
+            }
+        }
+        [DevExpress.Persistent.Base.ToolTipAttribute("First known recorded transaction (might not be accurate)")]
       public System.DateTime InCooperationSince
       {
          get

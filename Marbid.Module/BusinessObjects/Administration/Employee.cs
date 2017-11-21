@@ -120,6 +120,7 @@ namespace Marbid.Module.BusinessObjects.Administration
          }
       }
       #endregion
+
       [Association("Employees-MarbidRoles")]
       [RuleRequiredField("MarbidRoleIsRequired", DefaultContexts.Save,
           TargetCriteria = "IsActive",

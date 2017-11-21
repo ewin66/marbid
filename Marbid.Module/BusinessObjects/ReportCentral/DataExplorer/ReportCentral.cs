@@ -15,6 +15,7 @@ using DevExpress.ExpressApp.Editors;
 using Marbid.Module.BusinessObjects.Administration;
 using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.SystemModule;
+using Marbid.Module.BusinessObjects.ReportCentral.DataExplorer;
 
 namespace Marbid.Module.BusinessObjects.ReportCentral
 {
@@ -192,6 +193,34 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
             }
         }
 
+        MediaDataObject pivotLayout;
+        [ImageEditor(DetailViewImageEditorMode = ImageEditorMode.DropDownPictureEdit, ListViewImageEditorMode = ImageEditorMode.DropDownPictureEdit)]
+        public MediaDataObject PivotLayout
+        {
+            get
+            {
+                return pivotLayout;
+            }
+            set
+            {
+                SetPropertyValue("PivotLayout", ref pivotLayout, value);
+            }
+        }
+
+        MediaDataObject gridLayout;
+        [ImageEditor(DetailViewImageEditorMode = ImageEditorMode.DropDownPictureEdit, ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit)]
+        public MediaDataObject GridLayout
+        {
+            get
+            {
+                return gridLayout;
+            }
+            set
+            {
+                SetPropertyValue("GridLayout", ref gridLayout, value);
+            }
+        }
+
         [Association("Reports-Parameters"), DevExpress.Xpo.Aggregated]
         public XPCollection<ReportParameter> Parameters
         {
@@ -236,6 +265,24 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
             get
             {
                 return GetCollection<ReportCentralLayoutData>("ReportCentralLayoutData");
+            }
+        }
+
+        [Association("ReportCentral-PivotLayout"), DevExpress.Xpo.Aggregated]
+        public XPCollection<ReportCentralPivotLayout> PivotLayoutData
+        {
+            get
+            {
+                return GetCollection<ReportCentralPivotLayout>("PivotLayoutData");
+            }
+        }
+
+        [Association("ReportCentral-GridLayout"), DevExpress.Xpo.Aggregated]
+        public XPCollection<ReportCentralGridLayout> GridLayoutData
+        {
+            get
+            {
+                return GetCollection<ReportCentralGridLayout>("GridLayoutData");
             }
         }
 

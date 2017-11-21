@@ -11,19 +11,22 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using Marbid.Module.BusinessObjects.Administration;
+using DevExpress.ExpressApp.ConditionalAppearance;
 
-namespace Marbid.Module.BusinessObjects.ReportCentral
+namespace Marbid.Module.BusinessObjects.CRM
 {
     [DefaultClassOptions]
-    [NavigationItem(false)]
-    //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+    [ImageName("BO_Opportunity")]
+    [NavigationItem("CRM")]
+    [DefaultProperty("BeneficiaryName")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+    [Appearance("Disable", TargetItems = "CreatedBy,CreateDate,ModifiedBy,ModifyDate", Enabled = false)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class ReportParameter : BaseObject
+    public class BankAccount : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public ReportParameter(Session session)
+        public BankAccount(Session session)
             : base(session)
         {
         }
@@ -31,7 +34,15 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
         {
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
-            ParameterIndex = 0;
+            CreatedBy = Session.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
+            CreateDate = DateTime.Now;
+        }
+
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            ModifiedBy = Session.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
+            ModifyDate = DateTime.Now;
         }
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
@@ -47,88 +58,38 @@ namespace Marbid.Module.BusinessObjects.ReportCentral
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
-        string name;
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         [RuleRequiredField]
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                SetPropertyValue("Name", ref name, value);
-            }
-        }
+        public string BeneficiaryName { get; set; }
 
-        string caption;
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string Caption
-        {
-            get
-            {
-                return caption;
-            }
-            set
-            {
-                SetPropertyValue("Caption", ref caption, value);
-            }
-        }
-
-        string defaultValue;
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        public string DefaultValue
-        {
-            get
-            {
-                return defaultValue;
-            }
-            set
-            {
-                SetPropertyValue("DefaultValue", ref defaultValue, value);
-            }
-        }
-
-        ParameterType parameterType;
+        [Association("Company-BankAccounts")]
         [RuleRequiredField]
-        public ParameterType ParameterType
-        {
-            get
-            {
-                return parameterType;
-            }
-            set
-            {
-                SetPropertyValue("ParameterType", ref parameterType, value);
-            }
-        }
+        public Company Company { get; set; }
 
-        int parameterIndex;
-        public int ParameterIndex
-        {
-            get
-            {
-                return parameterIndex;
-            }
-            set
-            {
-                SetPropertyValue("ParameterIndex", ref parameterIndex, value);
-            }
-        }
+        [RuleRequiredField]
+        public Bank Bank { get; set; }
 
-        ReportCentral report;
-        [Association("Reports-Parameters")]
-        public ReportCentral Report
-        {
-            get
-            {
-                return report;
-            }
-            set
-            {
-                SetPropertyValue("Report", ref report, value);
-            }
-        }
+        [RuleRequiredField]
+        public Currency Currency { get; set; }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [RuleRequiredField]
+        [RuleUniqueValue]
+        public string AccountNumber { get; set; }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string IBAN { get; set; }
+
+        [VisibleInListView(false)]
+        public Employee CreatedBy { get; set; }
+
+        [VisibleInListView(false)]
+        public DateTime CreateDate { get; set; }
+
+        [VisibleInListView(false)]
+        public Employee ModifiedBy { get; set; }
+
+        [VisibleInListView(false)]
+        public DateTime ModifyDate { get; set; }
     }
 }

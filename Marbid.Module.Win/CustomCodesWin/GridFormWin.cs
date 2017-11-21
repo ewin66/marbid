@@ -13,6 +13,7 @@ using Marbid.Module.CustomCodes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -21,6 +22,7 @@ namespace Marbid.Module.Win.CustomCodesWin
     public class SaveLayoutEventArgs : EventArgs
     {
         public string LayoutXML { get; set; }
+        public Bitmap ImageData { get; set; }
     }
 
     public class GridForm
@@ -115,6 +117,8 @@ namespace Marbid.Module.Win.CustomCodesWin
             gridView = new GridView();
             gridControl = new GridControl();
             form = new XtraForm();
+            form.Icon = Marbid.Module.Win.Properties.Resources.mareinico;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Text = ReportName;
             gridControl.ViewCollection.Add(gridView);
             gridControl.Dock = DockStyle.Fill;
@@ -153,9 +157,16 @@ namespace Marbid.Module.Win.CustomCodesWin
             foreach (GridColumn col in view.Columns)
             {
                 col.OptionsColumn.ReadOnly = true;
+                if (col.ColumnType == typeof(System.Decimal) || col.ColumnType == typeof(System.Double))
+                {
+                    col.DisplayFormat.FormatType = FormatType.Numeric;
+                    col.DisplayFormat.FormatString = "n2";
+                    col.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+
+                }
             }
-            form.Height = 480;
-            form.Width = 640;
+            form.Height = 768;
+            form.Width = 1024;
             view.PopupMenuShowing += GridView_PopupMenuShowing;
             SplashScreenManager.CloseForm(false);
             form.Show();
@@ -169,13 +180,13 @@ namespace Marbid.Module.Win.CustomCodesWin
                 return;
             }
 
-
             DXMenuItem menuItem = new DXMenuItem("Column Properties");
             DXMenuItem gridViewPropertyMenuItem = new DXMenuItem("Grid View Property");
             DXMenuItem gridViewSaveLayoutMenuItem = new DXMenuItem("Save Layout");
             DXMenuItem gridViewSaveToXlsxItem = new DXMenuItem("Save to Xlsx (WYSIWYG)");
             DXMenuItem gridViewSaveToXlsxDataAwareItem = new DXMenuItem("Save to Xlsx (Data-Aware)");
             DXMenuItem saveDefaultLayoutMenuItem = new DXMenuItem("Save as Default Layout");
+            DXMenuItem printPreviewMenuItem = new DXMenuItem("Print Preview");
             DXSubMenuItem subMenuItem = new DXSubMenuItem("Layout");
             DXSubMenuItem exportSubMenu = new DXSubMenuItem("Export && Print");
 
@@ -184,7 +195,6 @@ namespace Marbid.Module.Win.CustomCodesWin
                 GridViewColumnMenu menu = e.Menu as GridViewColumnMenu;
                 if (menu.Column != null)
                 {
-
                     column = e.HitInfo.Column;
                     menuItem.Click += GridForm_GridViewColumnMenu_click;
                     subMenuItem.Items.Add(menuItem);
@@ -195,6 +205,7 @@ namespace Marbid.Module.Win.CustomCodesWin
             subMenuItem.Items.Add(gridViewSaveLayoutMenuItem);
             exportSubMenu.Items.Add(gridViewSaveToXlsxItem);
             exportSubMenu.Items.Add(gridViewSaveToXlsxDataAwareItem);
+            exportSubMenu.Items.Add(printPreviewMenuItem);
             subMenuItem.Items.Add(saveDefaultLayoutMenuItem);
             gridViewMenu.Items.Add(exportSubMenu);
             gridViewMenu.Items.Add(subMenuItem);
@@ -202,6 +213,7 @@ namespace Marbid.Module.Win.CustomCodesWin
             gridViewSaveLayoutMenuItem.Click += GridForm_GridViewSaveLayoutMenuItem_Click;
             gridViewSaveToXlsxItem.Click += GridForm_GridViewSaveToXlsxItem_Click;
             gridViewSaveToXlsxDataAwareItem.Click += GridForm_GridViewSaveToXlsxDataAwareItem_Click;
+            printPreviewMenuItem.Click += PrintPreviewMenuItem_Click;
             saveDefaultLayoutMenuItem.Click += SaveDefaultLayoutMenuItem_Click;
             if (!IsOwner)
             {
@@ -209,6 +221,11 @@ namespace Marbid.Module.Win.CustomCodesWin
                 menuItem.Visible = false;
                 saveDefaultLayoutMenuItem.Visible = false;
             }
+        }
+
+        private void PrintPreviewMenuItem_Click(object sender, EventArgs e)
+        {
+            gridView.ShowRibbonPrintPreview();
         }
 
         private void SaveDefaultLayoutMenuItem_Click(object sender, EventArgs e)
@@ -262,16 +279,19 @@ namespace Marbid.Module.Win.CustomCodesWin
         private void GridForm_GridViewSaveLayoutMenuItem_Click(object sender, EventArgs e)
         {
             Stream str = new MemoryStream();
-
             gridControl.MainView.SaveLayoutToStream(str, opt);
             str.Position = 0;
             var sr = new StreamReader(str);
             var myStr = sr.ReadToEnd();
             layoutData = myStr;
 
+            Bitmap b = new Bitmap(gridControl.Width, gridControl.Height);
+            gridControl.DrawToBitmap(b, new Rectangle(0, 0, b.Width, b.Height));
+
             SaveLayoutEventArgs args = new SaveLayoutEventArgs()
             {
-                LayoutXML = myStr
+                LayoutXML = myStr,
+                ImageData = b
             };
             Save(this, args);
         }
