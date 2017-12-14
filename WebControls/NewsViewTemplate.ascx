@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="NewsViewTemplate.ascx.vb" Inherits="WebControls.NewsViewTemplate" %>
-<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <style type="text/css">
     .auto-style2 {

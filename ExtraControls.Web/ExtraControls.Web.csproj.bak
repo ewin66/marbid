@@ -47,15 +47,6 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Office.v17.2.Core">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v17.2.Core">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v17.2.Export">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="DevExpress.Printing.v17.2.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
